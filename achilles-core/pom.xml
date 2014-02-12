@@ -98,10 +98,16 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Hibernate validator -->
+		<!-- TEST -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.xerial.snappy</groupId>
+			<artifactId>snappy-java</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
