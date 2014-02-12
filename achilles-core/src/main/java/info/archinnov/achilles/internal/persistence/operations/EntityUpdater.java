@@ -59,7 +59,7 @@ public class EntityUpdater {
 		EntityInterceptor<Object> interceptor = proxifier.getInterceptor(entity);
 		Map<Method, PropertyMeta> dirtyMap = interceptor.getDirtyMap();
 		List<PropertyMeta> sortedDirtyNonCounterMetas = new ArrayList<>(from(dirtyMap.values()).filter(
-				excludeCounterType).toImmutableList());
+				excludeCounterType).toList());
 		if (sortedDirtyNonCounterMetas.size() > 0) {
 			Collections.sort(sortedDirtyNonCounterMetas, comparator);
 			context.pushUpdateStatement(sortedDirtyNonCounterMetas);

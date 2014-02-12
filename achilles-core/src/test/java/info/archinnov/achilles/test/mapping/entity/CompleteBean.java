@@ -15,15 +15,16 @@
  */
 package info.archinnov.achilles.test.mapping.entity;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.Entity;
 import info.archinnov.achilles.annotations.Id;
 import info.archinnov.achilles.annotations.Order;
 import info.archinnov.achilles.type.Counter;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 
 @Entity
 public class CompleteBean {

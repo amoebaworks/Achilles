@@ -17,17 +17,8 @@
 package info.archinnov.achilles.test.integration.tests;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-
-import java.util.Date;
-import java.util.UUID;
-import org.apache.cassandra.utils.UUIDGen;
-import org.apache.commons.lang.math.RandomUtils;
-import org.junit.Rule;
-import org.junit.Test;
-import com.datastax.driver.core.Session;
-import com.datastax.driver.core.SimpleStatement;
-import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.junit.AchillesTestResource.Steps;
+import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.test.integration.AchillesInternalCQLResource;
 import info.archinnov.achilles.test.integration.entity.ClusteredMessageEntity;
 import info.archinnov.achilles.test.integration.entity.ClusteredMessageId;
@@ -35,6 +26,17 @@ import info.archinnov.achilles.test.integration.entity.ClusteredMessageId.Type;
 import info.archinnov.achilles.test.integration.entity.ClusteredTweetEntity;
 import info.archinnov.achilles.test.integration.entity.ClusteredTweetId;
 import info.archinnov.achilles.type.ConsistencyLevel;
+
+import java.util.Date;
+import java.util.Random;
+import java.util.UUID;
+
+import org.apache.cassandra.utils.UUIDGen;
+import org.junit.Rule;
+import org.junit.Test;
+
+import com.datastax.driver.core.Session;
+import com.datastax.driver.core.SimpleStatement;
 
 public class ClusteredEntityIT2 {
 
@@ -50,7 +52,7 @@ public class ClusteredEntityIT2 {
 
 	@Test
 	public void should_persist_and_find() throws Exception {
-		Long userId = RandomUtils.nextLong();
+		Long userId = new Random().nextLong();
 		UUID tweetId = UUIDGen.getTimeUUID();
 		Date creationDate = new Date();
 
@@ -69,8 +71,8 @@ public class ClusteredEntityIT2 {
 
 	@Test
 	public void should_merge() throws Exception {
-		Long userId = RandomUtils.nextLong();
-		Long originalAuthorId = RandomUtils.nextLong();
+		Long userId = new Random().nextLong();
+		Long originalAuthorId = new Random().nextLong();
 
 		UUID tweetId = UUIDGen.getTimeUUID();
 		Date creationDate = new Date();
@@ -95,7 +97,7 @@ public class ClusteredEntityIT2 {
 
 	@Test
 	public void should_remove() throws Exception {
-		Long userId = RandomUtils.nextLong();
+		Long userId = new Random().nextLong();
 		UUID tweetId = UUIDGen.getTimeUUID();
 		Date creationDate = new Date();
 
@@ -115,8 +117,8 @@ public class ClusteredEntityIT2 {
 	@Test
 	public void should_refresh() throws Exception {
 
-		Long userId = RandomUtils.nextLong();
-		Long originalAuthorId = RandomUtils.nextLong();
+		Long userId = new Random().nextLong();
+		Long originalAuthorId = new Random().nextLong();
 		UUID tweetId = UUIDGen.getTimeUUID();
 		Date creationDate = new Date();
 
@@ -141,7 +143,7 @@ public class ClusteredEntityIT2 {
 
 	@Test
 	public void should_persist_and_find_entity_having_compound_id_with_enum() throws Exception {
-		long id = RandomUtils.nextLong();
+		long id = new Random().nextLong();
 		ClusteredMessageId messageId = new ClusteredMessageId(id, Type.TEXT);
 
 		ClusteredMessageEntity message = new ClusteredMessageEntity(messageId, "a message");
@@ -157,7 +159,7 @@ public class ClusteredEntityIT2 {
 
 	@Test
 	public void should_update_entity_having_compound_id_with_enum() throws Exception {
-		long id = RandomUtils.nextLong();
+		long id = new Random().nextLong();
 		ClusteredMessageId messageId = new ClusteredMessageId(id, Type.IMAGE);
 
 		ClusteredMessageEntity message = new ClusteredMessageEntity(messageId, "an image");
@@ -175,7 +177,7 @@ public class ClusteredEntityIT2 {
 
 	@Test
 	public void should_remove_entity_having_compound_id_with_enum() throws Exception {
-		long id = RandomUtils.nextLong();
+		long id = new Random().nextLong();
 		ClusteredMessageId messageId = new ClusteredMessageId(id, Type.AUDIO);
 
 		ClusteredMessageEntity message = new ClusteredMessageEntity(messageId, "an mp3");
@@ -194,7 +196,7 @@ public class ClusteredEntityIT2 {
 		String label = "a random file";
 		String newLabel = "a pdf file";
 
-		long id = RandomUtils.nextLong();
+		long id = new Random().nextLong();
 		ClusteredMessageId messageId = new ClusteredMessageId(id, Type.FILE);
 
 		ClusteredMessageEntity message = new ClusteredMessageEntity(messageId, label);

@@ -16,21 +16,22 @@
 package info.archinnov.achilles.internal.proxy.wrapper.builder;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import info.archinnov.achilles.internal.context.PersistenceContext;
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+import info.archinnov.achilles.internal.proxy.wrapper.MapWrapper;
+import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.internal.util.reflection.Whitebox;
 import org.mockito.runners.MockitoJUnitRunner;
-import info.archinnov.achilles.internal.context.PersistenceContext;
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.proxy.wrapper.MapWrapper;
-import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MapWrapperBuilderTest {

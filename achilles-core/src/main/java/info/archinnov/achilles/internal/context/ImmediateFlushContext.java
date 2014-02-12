@@ -15,8 +15,8 @@
  */
 package info.archinnov.achilles.internal.context;
 
-import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.interceptor.Event;
+import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.statement.wrapper.AbstractStatementWrapper;
 import info.archinnov.achilles.type.ConsistencyLevel;
 
@@ -24,6 +24,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.datastax.driver.core.BatchStatement;
 
 public class ImmediateFlushContext extends AbstractFlushContext {

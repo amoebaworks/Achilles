@@ -17,18 +17,18 @@
 package info.archinnov.achilles.test.integration.tests;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-
-import org.apache.cassandra.utils.UUIDGen;
-import org.junit.Rule;
-import org.junit.Test;
 import info.archinnov.achilles.internal.persistence.operations.InternalCounterImpl;
-import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.junit.AchillesTestResource.Steps;
+import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.test.integration.AchillesInternalCQLResource;
 import info.archinnov.achilles.test.integration.entity.CompleteBean;
 import info.archinnov.achilles.test.integration.entity.CompleteBeanTestBuilder;
 import info.archinnov.achilles.test.integration.entity.Tweet;
 import info.archinnov.achilles.type.CounterBuilder;
+
+import org.apache.cassandra.utils.UUIDGen;
+import org.junit.Rule;
+import org.junit.Test;
 
 public class InitializeIT {
 

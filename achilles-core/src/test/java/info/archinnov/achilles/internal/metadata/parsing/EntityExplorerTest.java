@@ -16,15 +16,14 @@
 package info.archinnov.achilles.internal.metadata.parsing;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-
-import java.util.Arrays;
-import java.util.List;
-import org.junit.Test;
-
-import info.archinnov.achilles.internal.metadata.parsing.EntityExplorer;
 import info.archinnov.achilles.test.more.entity.Entity3;
 import info.archinnov.achilles.test.sample.entity.Entity1;
 import info.archinnov.achilles.test.sample.entity.Entity2;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Test;
 
 public class EntityExplorerTest {
 	private EntityExplorer explorer = new EntityExplorer();

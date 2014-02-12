@@ -15,15 +15,15 @@
  */
 package info.archinnov.achilles.internal.metadata.parsing.validator;
 
-import static info.archinnov.achilles.type.ConsistencyLevel.*;
+import static info.archinnov.achilles.type.ConsistencyLevel.ALL;
+import static info.archinnov.achilles.type.ConsistencyLevel.ANY;
 import static org.mockito.Mockito.when;
 import info.archinnov.achilles.annotations.EmbeddedId;
 import info.archinnov.achilles.annotations.Id;
 import info.archinnov.achilles.annotations.Index;
+import info.archinnov.achilles.exception.AchillesBeanMappingException;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.metadata.parsing.context.PropertyParsingContext;
-import info.archinnov.achilles.internal.metadata.parsing.validator.PropertyParsingValidator;
-import info.archinnov.achilles.exception.AchillesBeanMappingException;
 import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 import info.archinnov.achilles.test.parser.entity.CorrectEmbeddedKey;
 import info.archinnov.achilles.type.ConsistencyLevel;

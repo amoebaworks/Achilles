@@ -16,15 +16,17 @@
  */
 package info.archinnov.achilles.test.integration.tests;
 
-import static info.archinnov.achilles.type.ConsistencyLevel.*;
+import static info.archinnov.achilles.type.ConsistencyLevel.EACH_QUORUM;
+import static info.archinnov.achilles.type.ConsistencyLevel.ONE;
+import static info.archinnov.achilles.type.ConsistencyLevel.QUORUM;
 import static org.fest.assertions.api.Assertions.assertThat;
+import info.archinnov.achilles.exception.AchillesException;
 import info.archinnov.achilles.internal.context.BatchingFlushContext;
+import info.archinnov.achilles.internal.statement.wrapper.AbstractStatementWrapper;
+import info.archinnov.achilles.junit.AchillesTestResource.Steps;
 import info.archinnov.achilles.persistence.BatchingPersistenceManager;
 import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.persistence.PersistenceManagerFactory;
-import info.archinnov.achilles.exception.AchillesException;
-import info.archinnov.achilles.junit.AchillesTestResource.Steps;
-import info.archinnov.achilles.internal.statement.wrapper.AbstractStatementWrapper;
 import info.archinnov.achilles.test.builders.TweetTestBuilder;
 import info.archinnov.achilles.test.builders.UserTestBuilder;
 import info.archinnov.achilles.test.integration.AchillesInternalCQLResource;
@@ -38,8 +40,8 @@ import info.archinnov.achilles.type.OptionsBuilder;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -67,7 +69,7 @@ public class BatchModeIT {
 
 	private User user;
 
-	private Long userId = RandomUtils.nextLong();
+	private Long userId = new Random().nextLong();
 
 	@Before
 	public void setUp() {

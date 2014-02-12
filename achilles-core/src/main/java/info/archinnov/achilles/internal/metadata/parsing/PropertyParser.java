@@ -16,7 +16,12 @@
 package info.archinnov.achilles.internal.metadata.parsing;
 
 import static info.archinnov.achilles.internal.metadata.holder.PropertyMetaBuilder.factory;
-import static info.archinnov.achilles.internal.metadata.holder.PropertyType.*;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.EMBEDDED_ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.LIST;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.MAP;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SET;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SIMPLE;
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.Consistency;
 import info.archinnov.achilles.annotations.EmbeddedId;
@@ -52,7 +57,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

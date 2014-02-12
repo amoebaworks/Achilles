@@ -16,21 +16,23 @@
 package info.archinnov.achilles.internal.metadata.parsing;
 
 import static info.archinnov.achilles.internal.helper.LoggerHelper.fieldToStringFn;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-import info.archinnov.achilles.type.Pair;
-import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import com.google.common.collect.Lists;
 import info.archinnov.achilles.annotations.Consistency;
 import info.archinnov.achilles.annotations.Entity;
 import info.archinnov.achilles.exception.AchillesBeanMappingException;
 import info.archinnov.achilles.internal.table.TableNameNormalizer;
 import info.archinnov.achilles.type.ConsistencyLevel;
+import info.archinnov.achilles.type.Pair;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.google.common.collect.Lists;
 
 public class EntityIntrospector {
 	private static final Logger log = LoggerFactory.getLogger(EntityIntrospector.class);

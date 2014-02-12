@@ -16,12 +16,13 @@
 
 package info.archinnov.achilles.internal.persistence.operations;
 
-import com.datastax.driver.core.Row;
 import info.archinnov.achilles.internal.consistency.ConsistencyOverrider;
 import info.archinnov.achilles.internal.context.PersistenceContext;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.type.ConsistencyLevel;
+
+import com.datastax.driver.core.Row;
 
 public class CounterLoader {
 

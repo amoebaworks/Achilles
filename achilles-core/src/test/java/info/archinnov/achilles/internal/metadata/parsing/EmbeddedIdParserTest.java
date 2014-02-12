@@ -16,19 +16,8 @@
 package info.archinnov.achilles.internal.metadata.parsing;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-
-import java.lang.reflect.Method;
-import java.util.UUID;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.runners.MockitoJUnitRunner;
-
-import info.archinnov.achilles.internal.metadata.holder.EmbeddedIdProperties;
-import info.archinnov.achilles.internal.metadata.parsing.EmbeddedIdParser;
 import info.archinnov.achilles.exception.AchillesBeanMappingException;
+import info.archinnov.achilles.internal.metadata.holder.EmbeddedIdProperties;
 import info.archinnov.achilles.test.parser.entity.CorrectEmbeddedKey;
 import info.archinnov.achilles.test.parser.entity.CorrectEmbeddedReversedKey;
 import info.archinnov.achilles.test.parser.entity.EmbeddedKeyAsCompoundPartitionKey;
@@ -44,6 +33,16 @@ import info.archinnov.achilles.test.parser.entity.EmbeddedKeyWithNoAnnotation;
 import info.archinnov.achilles.test.parser.entity.EmbeddedKeyWithOnlyOneComponent;
 import info.archinnov.achilles.test.parser.entity.EmbeddedKeyWithPartitionKeyAndBadReversedPosition;
 import info.archinnov.achilles.test.parser.entity.EmbeddedKeyWithTimeUUID;
+
+import java.lang.reflect.Method;
+import java.util.UUID;
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmbeddedIdParserTest {

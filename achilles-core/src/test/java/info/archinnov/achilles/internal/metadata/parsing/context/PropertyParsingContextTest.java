@@ -16,8 +16,7 @@
 
 package info.archinnov.achilles.internal.metadata.parsing.context;
 
-import static org.fest.assertions.api.Assertions.*;
-import info.archinnov.achilles.internal.metadata.parsing.context.PropertyParsingContext;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -16,7 +16,34 @@
 
 package info.archinnov.achilles.configuration;
 
-import static info.archinnov.achilles.configuration.ConfigurationParameters.*;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.BEAN_VALIDATION_ENABLE;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.BEAN_VALIDATION_VALIDATOR;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.CLUSTER_NAME_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.CLUSTER_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.COMPRESSION_TYPE;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.CONNECTION_CONTACT_POINTS_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.CONNECTION_CQL_PORT_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.CONSISTENCY_LEVEL_READ_DEFAULT_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.CONSISTENCY_LEVEL_READ_MAP_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.CONSISTENCY_LEVEL_WRITE_DEFAULT_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.CONSISTENCY_LEVEL_WRITE_MAP_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.DEFAULT_LEVEL;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.DISABLE_JMX;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.DISABLE_METRICS;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.ENTITY_PACKAGES_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.EVENT_INTERCEPTORS_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.FORCE_TABLE_CREATION_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.KEYSPACE_NAME_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.LOAD_BALANCING_POLICY;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.NATIVE_SESSION_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.OBJECT_MAPPER_FACTORY_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.OBJECT_MAPPER_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.PASSWORD;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.RECONNECTION_POLICY;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.RETRY_POLICY;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.SSL_ENABLED;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.SSL_OPTIONS;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.USERNAME;
 import static javax.validation.Validation.buildDefaultValidatorFactory;
 import info.archinnov.achilles.exception.AchillesException;
 import info.archinnov.achilles.interceptor.Interceptor;
@@ -36,7 +63,7 @@ import java.util.Map.Entry;
 
 import javax.validation.ValidationException;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -15,7 +15,8 @@
  */
 package info.archinnov.achilles.internal.reflection;
 
-import static info.archinnov.achilles.internal.cql.TypeMapper.*;
+import static info.archinnov.achilles.internal.cql.TypeMapper.getRowMethod;
+import static info.archinnov.achilles.internal.cql.TypeMapper.toCompatibleJavaType;
 import info.archinnov.achilles.exception.AchillesException;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.validation.Validator;

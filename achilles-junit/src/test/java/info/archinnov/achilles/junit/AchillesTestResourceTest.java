@@ -16,11 +16,11 @@
 package info.archinnov.achilles.junit;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import info.archinnov.achilles.junit.AchillesTestResource.Steps;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
-import info.archinnov.achilles.junit.AchillesTestResource.Steps;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AchillesTestResourceTest {

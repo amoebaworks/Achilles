@@ -15,11 +15,11 @@
  */
 package info.archinnov.achilles.internal.metadata.transcoding;
 
-import static info.archinnov.achilles.internal.metadata.holder.PropertyType.*;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.MAP;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SIMPLE;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.metadata.transcoding.MapTranscoder;
 import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
 
 import java.util.Map;

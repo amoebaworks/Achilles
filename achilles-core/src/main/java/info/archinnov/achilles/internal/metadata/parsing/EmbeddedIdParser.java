@@ -15,8 +15,10 @@
  */
 package info.archinnov.achilles.internal.metadata.parsing;
 
-import static org.apache.commons.lang.StringUtils.isNotBlank;
-import static org.reflections.ReflectionUtils.*;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.reflections.ReflectionUtils.getAllConstructors;
+import static org.reflections.ReflectionUtils.getFields;
+import static org.reflections.ReflectionUtils.withParametersCount;
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.Order;
 import info.archinnov.achilles.annotations.PartitionKey;

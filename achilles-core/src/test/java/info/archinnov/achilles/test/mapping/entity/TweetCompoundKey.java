@@ -15,8 +15,9 @@
  */
 package info.archinnov.achilles.test.mapping.entity;
 
-import java.util.UUID;
 import info.archinnov.achilles.annotations.Order;
+
+import java.util.UUID;
 
 public class TweetCompoundKey {
 	@Order(2)

@@ -15,13 +15,24 @@
  */
 package info.archinnov.achilles.internal.context;
 
-import static com.datastax.driver.core.querybuilder.QueryBuilder.*;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.insertInto;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.timestamp;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.ttl;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.update;
 import static com.google.common.collect.ImmutableMap.of;
-import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.*;
-import static info.archinnov.achilles.counter.AchillesCounter.ClusteredCounterStatement.*;
-import static info.archinnov.achilles.type.ConsistencyLevel.*;
+import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.DELETE;
+import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.INCR;
+import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.SELECT;
+import static info.archinnov.achilles.counter.AchillesCounter.ClusteredCounterStatement.DELETE_ALL;
+import static info.archinnov.achilles.counter.AchillesCounter.ClusteredCounterStatement.SELECT_ALL;
+import static info.archinnov.achilles.type.ConsistencyLevel.ALL;
+import static info.archinnov.achilles.type.ConsistencyLevel.EACH_QUORUM;
+import static info.archinnov.achilles.type.ConsistencyLevel.LOCAL_QUORUM;
+import static info.archinnov.achilles.type.ConsistencyLevel.ONE;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.counter.AchillesCounter.CQLQueryType;
 import info.archinnov.achilles.exception.AchillesException;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
@@ -42,8 +53,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -441,7 +452,7 @@ public class DaoContextTest {
 	@Test
 	public void should_increment_simple_counter() throws Exception {
 		// Given
-		Long counterValue = RandomUtils.nextLong();
+		Long counterValue = new Random().nextLong();
 		PropertyMeta pm = PropertyMetaTestBuilder.valueClass(String.class).field("name").build();
 
 		// When
@@ -459,7 +470,7 @@ public class DaoContextTest {
 	@Test
 	public void should_decrement_simple_counter() throws Exception {
 		// Given
-		Long counterValue = RandomUtils.nextLong();
+		Long counterValue = new Random().nextLong();
 		PropertyMeta pm = PropertyMetaTestBuilder.valueClass(String.class).field("name").build();
 
 		// When

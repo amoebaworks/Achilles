@@ -36,13 +36,13 @@ import info.archinnov.achilles.type.TypedMap;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 
 import net.sf.cglib.proxy.Factory;
 
 import org.apache.cassandra.utils.UUIDGen;
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -142,7 +142,7 @@ public class QueryIT {
 	@Test
 	public void should_return_cql_functions_for_native_query() throws Exception {
 
-		Long id = RandomUtils.nextLong();
+		Long id = new Random().nextLong();
 		UUID date = UUIDGen.getTimeUUID();
 
 		manager.persist(new ClusteredEntityWithTimeUUID(id, date, "value"));
@@ -509,7 +509,7 @@ public class QueryIT {
 
 	@Test
 	public void should_return_first_clustered_entity_for_typed_query_with_select_star() throws Exception {
-		Long id = RandomUtils.nextLong();
+		Long id = new Random().nextLong();
 
 		ClusteredEntity entity = new ClusteredEntity(id, 10, "name", "value");
 		manager.persist(entity);
@@ -555,7 +555,7 @@ public class QueryIT {
 
 	@Test
 	public void should_return_first_raw_clustered_entity_for_raw_query_with_simple_select() throws Exception {
-		Long id = RandomUtils.nextLong();
+		Long id = new Random().nextLong();
 
 		ClusteredEntity entity = new ClusteredEntity(id, 10, "name", "value");
 		manager.persist(entity);

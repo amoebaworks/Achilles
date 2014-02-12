@@ -15,11 +15,12 @@
  */
 package info.archinnov.achilles.internal.proxy.wrapper;
 
-import java.lang.reflect.Method;
-import java.util.Map;
 import info.archinnov.achilles.internal.context.PersistenceContext;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.persistence.operations.EntityProxifier;
+
+import java.lang.reflect.Method;
+import java.util.Map;
 
 public abstract class AbstractWrapper {
 	protected Map<Method, PropertyMeta> dirtyMap;

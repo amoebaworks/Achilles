@@ -17,6 +17,10 @@
 package info.archinnov.achilles.test.integration.tests;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import info.archinnov.achilles.embedded.CassandraEmbeddedServer;
+import info.archinnov.achilles.embedded.CassandraEmbeddedServerBuilder;
+import info.archinnov.achilles.persistence.PersistenceManager;
+import info.archinnov.achilles.persistence.PersistenceManagerFactory;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Rule;
@@ -24,11 +28,8 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
+
 import com.datastax.driver.core.Session;
-import info.archinnov.achilles.embedded.CassandraEmbeddedServer;
-import info.archinnov.achilles.embedded.CassandraEmbeddedServerBuilder;
-import info.archinnov.achilles.persistence.PersistenceManager;
-import info.archinnov.achilles.persistence.PersistenceManagerFactory;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CQLEmbeddedServerIT {

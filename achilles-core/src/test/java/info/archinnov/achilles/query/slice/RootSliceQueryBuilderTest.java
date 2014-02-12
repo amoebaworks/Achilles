@@ -19,21 +19,24 @@ import static info.archinnov.achilles.type.BoundingMode.EXCLUSIVE_BOUNDS;
 import static info.archinnov.achilles.type.ConsistencyLevel.EACH_QUORUM;
 import static info.archinnov.achilles.type.OrderingMode.DESCENDING;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyListOf;
+import static org.mockito.Mockito.doCallRealMethod;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import info.archinnov.achilles.exception.AchillesException;
 import info.archinnov.achilles.internal.context.ConfigurationContext;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.persistence.operations.SliceQueryExecutor;
-import info.archinnov.achilles.exception.AchillesException;
 import info.archinnov.achilles.test.mapping.entity.ClusteredEntity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -192,7 +195,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		when(sliceQueryExecutor.get(anySliceQuery())).thenReturn(result);
 
 		List<ClusteredEntity> actual = builder.partitionComponentsInternal(partitionKey).get();
@@ -202,7 +205,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get_n() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		when(sliceQueryExecutor.get(anySliceQuery())).thenReturn(result);
 
 		List<ClusteredEntity> actual = builder.partitionComponentsInternal(partitionKey).get(5);
@@ -213,7 +216,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get_first() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		ClusteredEntity entity = new ClusteredEntity();
 		when(sliceQueryExecutor.get(anySliceQuery())).thenReturn(Arrays.asList(entity));
 
@@ -226,7 +229,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get_first_with_clustering_components() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		ClusteredEntity entity = new ClusteredEntity();
 		when(sliceQueryExecutor.get(anySliceQuery())).thenReturn(Arrays.asList(entity));
 
@@ -245,7 +248,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_return_null_when_no_first() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		when(sliceQueryExecutor.get(anySliceQuery())).thenReturn(new ArrayList<ClusteredEntity>());
 
 		ClusteredEntity actual = builder.partitionComponentsInternal(partitionKey).getFirstOccurence();
@@ -257,7 +260,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get_first_n() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		when(sliceQueryExecutor.get(anySliceQuery())).thenReturn(result);
 
 		builder.partitionComponentsInternal(partitionKey).getFirst(3);
@@ -267,7 +270,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get_first_n_with_clustering_components() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		when(sliceQueryExecutor.get(anySliceQuery())).thenReturn(result);
 
 		Object[] clusteringComponents = new Object[] { 1, "name" };
@@ -282,7 +285,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get_last() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 
 		ClusteredEntity entity = new ClusteredEntity();
 		when(sliceQueryExecutor.get(anySliceQuery())).thenReturn(Arrays.asList(entity));
@@ -297,7 +300,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get_last_with_clustering_components() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 
 		ClusteredEntity entity = new ClusteredEntity();
 		when(sliceQueryExecutor.get(anySliceQuery())).thenReturn(Arrays.asList(entity));
@@ -319,7 +322,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get_last_n() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		when(sliceQueryExecutor.get(anySliceQuery())).thenReturn(result);
 
 		builder.partitionComponentsInternal(partitionKey).getLast(6);
@@ -330,7 +333,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get_last_n_with_clustering_components() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 
 		when(sliceQueryExecutor.get(anySliceQuery())).thenReturn(result);
 
@@ -348,7 +351,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get_iterator() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 
 		when(sliceQueryExecutor.iterator(anySliceQuery())).thenReturn(iterator);
 		Iterator<ClusteredEntity> actual = builder.partitionComponentsInternal(partitionKey).iterator();
@@ -358,7 +361,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get_iterator_with_components() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		Object[] clusteringComponents = new Object[] { 1, "name" };
 
 		when(sliceQueryExecutor.iterator(anySliceQuery())).thenReturn(iterator);
@@ -375,7 +378,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get_iterator_with_batch_size() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 
 		when(sliceQueryExecutor.iterator(anySliceQuery())).thenReturn(iterator);
 		Iterator<ClusteredEntity> actual = builder.partitionComponentsInternal(partitionKey).iterator(7);
@@ -386,7 +389,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_get_iterator_with_batch_size_and_components() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		Object[] clusteringComponents = new Object[] { 1, "name" };
 
 		when(sliceQueryExecutor.iterator(anySliceQuery())).thenReturn(iterator);
@@ -404,7 +407,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_remove() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		builder.partitionComponentsInternal(partitionKey).remove();
 
 		verify(sliceQueryExecutor).remove(anySliceQuery());
@@ -412,7 +415,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_remove_n() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		builder.partitionComponentsInternal(partitionKey).remove(8);
 
 		assertThat(Whitebox.getInternalState(builder, "limit")).isEqualTo(8);
@@ -421,7 +424,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_remove_first() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		builder.partitionComponentsInternal(partitionKey).removeFirstOccurence();
 
 		assertThat(Whitebox.getInternalState(builder, "limit")).isEqualTo(1);
@@ -430,7 +433,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_remove_first_with_clustering_components() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 
 		Object[] clusteringComponents = new Object[] { 1, "name" };
 
@@ -446,7 +449,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_remove_first_n() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		builder.partitionComponentsInternal(partitionKey).removeFirst(9);
 
 		assertThat(Whitebox.getInternalState(builder, "limit")).isEqualTo(9);
@@ -455,7 +458,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_remove_first_n_with_clustering_components() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		Object[] clusteringComponents = new Object[] { 1, "name" };
 		builder.partitionComponentsInternal(partitionKey).removeFirst(9, clusteringComponents);
 
@@ -469,7 +472,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_remove_last() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		builder.partitionComponentsInternal(partitionKey).removeLastOccurence();
 
 		assertThat(Whitebox.getInternalState(builder, "ordering")).isEqualTo(DESCENDING);
@@ -480,7 +483,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_remove_last_with_clustering_components() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		Object[] clusteringComponents = new Object[] { 1, "name" };
 		builder.partitionComponentsInternal(partitionKey).removeLastOccurence(clusteringComponents);
 
@@ -495,7 +498,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_remove_last_n() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		builder.partitionComponentsInternal(partitionKey).removeLast(10);
 
 		assertThat(Whitebox.getInternalState(builder, "ordering")).isEqualTo(DESCENDING);
@@ -505,7 +508,7 @@ public class RootSliceQueryBuilderTest {
 
 	@Test
 	public void should_remove_last_n_with_clustering_components() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		Object[] clusteringComponents = new Object[] { 1, "name" };
 		builder.partitionComponentsInternal(partitionKey).removeLast(10, clusteringComponents);
 

@@ -16,15 +16,16 @@
  */
 package info.archinnov.achilles.test.integration.entity;
 
+import info.archinnov.achilles.type.Counter;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
-import org.apache.commons.lang.math.RandomUtils;
-import info.archinnov.achilles.type.Counter;
 
 public class CompleteBeanTestBuilder {
 
@@ -71,7 +72,7 @@ public class CompleteBeanTestBuilder {
 	}
 
 	public CompleteBeanTestBuilder randomId() {
-		this.id = RandomUtils.nextLong();
+		this.id = new Random().nextLong();
 		return this;
 	}
 

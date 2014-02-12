@@ -15,8 +15,9 @@
  */
 package info.archinnov.achilles.test.parser.entity;
 
-import java.util.List;
 import info.archinnov.achilles.annotations.Order;
+
+import java.util.List;
 
 public class EmbeddedKeyIncorrectType {
 	@Order(1)

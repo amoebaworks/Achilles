@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
@@ -94,7 +94,7 @@ public class EntityMeta {
 	}
 
 	protected List<Interceptor<?>> getInterceptorsForEvent(final Event event) {
-		return FluentIterable.from(interceptors).filter(getFilterForEvent(event)).toImmutableList();
+		return FluentIterable.from(interceptors).filter(getFilterForEvent(event)).toList();
 
 	}
 
@@ -215,7 +215,7 @@ public class EntityMeta {
 	}
 
 	public List<PropertyMeta> getAllCounterMetas() {
-		return from(propertyMetas.values()).filter(counterType).toImmutableList();
+		return from(propertyMetas.values()).filter(counterType).toList();
 	}
 
 	public List<PropertyMeta> getAllMetasExceptId() {

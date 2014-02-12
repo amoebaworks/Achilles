@@ -17,10 +17,12 @@ package info.archinnov.achilles.internal.context;
 
 import static info.archinnov.achilles.type.ConsistencyLevel.LOCAL_QUORUM;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import info.archinnov.achilles.interceptor.Event;
 import info.archinnov.achilles.internal.context.AbstractFlushContext.FlushType;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
-import info.archinnov.achilles.interceptor.Event;
 import info.archinnov.achilles.internal.statement.wrapper.AbstractStatementWrapper;
 import info.archinnov.achilles.internal.statement.wrapper.BoundStatementWrapper;
 

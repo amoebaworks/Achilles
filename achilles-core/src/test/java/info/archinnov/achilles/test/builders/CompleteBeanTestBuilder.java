@@ -23,9 +23,8 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
-
-import org.apache.commons.lang.math.RandomUtils;
 
 public class CompleteBeanTestBuilder {
 
@@ -66,7 +65,7 @@ public class CompleteBeanTestBuilder {
 	}
 
 	public CompleteBeanTestBuilder randomId() {
-		this.id = RandomUtils.nextLong();
+		this.id = new Random().nextLong();
 		return this;
 	}
 

@@ -17,14 +17,15 @@
 package info.archinnov.achilles.internal.consistency;
 
 import static info.archinnov.achilles.internal.context.AbstractFlushContext.FlushType.BATCH;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import info.archinnov.achilles.internal.context.AbstractFlushContext;
 import info.archinnov.achilles.internal.context.PersistenceContext;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.type.ConsistencyLevel;
 import info.archinnov.achilles.type.Options;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ConsistencyOverrider {
 

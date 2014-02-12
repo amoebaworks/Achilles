@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -134,7 +134,7 @@ public class PropertyMeta {
 
 	public List<String> getCQLComponentNames() {
 		log.trace("Get CQL component names");
-		return FluentIterable.from(getComponentNames()).transform(toLowerCase).toImmutableList();
+		return FluentIterable.from(getComponentNames()).transform(toLowerCase).toList();
 	}
 
 	public List<String> getClusteringComponentNames() {

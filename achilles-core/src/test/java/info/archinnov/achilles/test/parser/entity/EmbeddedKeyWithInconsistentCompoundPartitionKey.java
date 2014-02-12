@@ -15,9 +15,10 @@
  */
 package info.archinnov.achilles.test.parser.entity;
 
-import java.util.UUID;
 import info.archinnov.achilles.annotations.Order;
 import info.archinnov.achilles.annotations.PartitionKey;
+
+import java.util.UUID;
 
 public class EmbeddedKeyWithInconsistentCompoundPartitionKey {
 

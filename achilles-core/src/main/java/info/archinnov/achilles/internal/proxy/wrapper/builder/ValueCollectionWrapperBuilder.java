@@ -15,9 +15,10 @@
  */
 package info.archinnov.achilles.internal.proxy.wrapper.builder;
 
-import java.util.Collection;
 import info.archinnov.achilles.internal.context.PersistenceContext;
 import info.archinnov.achilles.internal.proxy.wrapper.ValueCollectionWrapper;
+
+import java.util.Collection;
 
 public class ValueCollectionWrapperBuilder extends AbstractWrapperBuilder<ValueCollectionWrapperBuilder> {
 	private Collection<Object> target;

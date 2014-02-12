@@ -19,6 +19,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import org.junit.Test;
 
 public class SetWrapperTest {

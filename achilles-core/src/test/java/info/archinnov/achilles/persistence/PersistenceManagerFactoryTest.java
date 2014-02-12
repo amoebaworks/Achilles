@@ -15,9 +15,12 @@
  */
 package info.archinnov.achilles.persistence;
 
-import static info.archinnov.achilles.configuration.ConfigurationParameters.*;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.ENTITY_PACKAGES_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.KEYSPACE_NAME_PARAM;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.configuration.ArgumentExtractor;
 import info.archinnov.achilles.interceptor.Interceptor;
 import info.archinnov.achilles.internal.context.ConfigurationContext;
@@ -166,7 +169,7 @@ public class PersistenceManagerFactoryTest {
 		pmf.daoContext = daoContext;
 		pmf.contextFactory = contextFactory;
 
-		PersistenceManager manager = pmf.createBatchingPersistenceManager();
+		BatchingPersistenceManager manager = pmf.createBatchingPersistenceManager();
 
 		// Then
 		assertThat(manager).isNotNull();

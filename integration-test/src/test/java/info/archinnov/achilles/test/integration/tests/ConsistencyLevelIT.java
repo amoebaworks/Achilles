@@ -16,7 +16,8 @@
  */
 package info.archinnov.achilles.test.integration.tests;
 
-import static info.archinnov.achilles.type.ConsistencyLevel.*;
+import static info.archinnov.achilles.type.ConsistencyLevel.ALL;
+import static info.archinnov.achilles.type.ConsistencyLevel.EACH_QUORUM;
 import static org.fest.assertions.api.Assertions.assertThat;
 import info.archinnov.achilles.junit.AchillesTestResource.Steps;
 import info.archinnov.achilles.persistence.PersistenceManager;
@@ -29,7 +30,8 @@ import info.archinnov.achilles.test.integration.utils.CassandraLogAsserter;
 import info.archinnov.achilles.type.ConsistencyLevel;
 import info.archinnov.achilles.type.OptionsBuilder;
 
-import org.apache.commons.lang.math.RandomUtils;
+import java.util.Random;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -50,7 +52,7 @@ public class ConsistencyLevelIT {
 
 	private CassandraLogAsserter logAsserter = new CassandraLogAsserter();
 
-	private Long id = RandomUtils.nextLong();
+	private Long id = new Random().nextLong();
 
 	@Test
 	public void should_throw_exception_when_persisting_with_local_quorum_consistency() throws Exception {

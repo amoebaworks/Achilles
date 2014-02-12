@@ -15,15 +15,16 @@
  */
 package info.archinnov.achilles.internal.metadata.holder;
 
-import static info.archinnov.achilles.interceptor.Event.*;
-import static info.archinnov.achilles.internal.metadata.holder.PropertyType.*;
-import static info.archinnov.achilles.type.ConsistencyLevel.*;
+import static info.archinnov.achilles.interceptor.Event.POST_PERSIST;
+import static info.archinnov.achilles.interceptor.Event.PRE_PERSIST;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.COUNTER;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.EMBEDDED_ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SIMPLE;
+import static info.archinnov.achilles.type.ConsistencyLevel.ALL;
+import static info.archinnov.achilles.type.ConsistencyLevel.ONE;
 import static org.fest.assertions.api.Assertions.assertThat;
 import info.archinnov.achilles.interceptor.Event;
 import info.archinnov.achilles.interceptor.Interceptor;
-import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.metadata.holder.PropertyType;
 import info.archinnov.achilles.internal.reflection.ReflectionInvoker;
 import info.archinnov.achilles.test.builders.CompleteBeanTestBuilder;
 import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;

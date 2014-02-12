@@ -25,16 +25,20 @@ import static info.archinnov.achilles.interceptor.Event.PRE_REMOVE;
 import static info.archinnov.achilles.interceptor.Event.PRE_UPDATE;
 import static info.archinnov.achilles.type.ConsistencyLevel.LOCAL_QUORUM;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.persistence.operations.EntityInitializer;
 import info.archinnov.achilles.internal.persistence.operations.EntityLoader;
-import info.archinnov.achilles.internal.persistence.operations.EntityUpdater;
 import info.archinnov.achilles.internal.persistence.operations.EntityPersister;
 import info.archinnov.achilles.internal.persistence.operations.EntityProxifier;
 import info.archinnov.achilles.internal.persistence.operations.EntityRefresher;
+import info.archinnov.achilles.internal.persistence.operations.EntityUpdater;
 import info.archinnov.achilles.internal.reflection.ReflectionInvoker;
 import info.archinnov.achilles.internal.statement.wrapper.BoundStatementWrapper;
 import info.archinnov.achilles.test.builders.CompleteBeanTestBuilder;
@@ -44,8 +48,8 @@ import info.archinnov.achilles.type.OptionsBuilder;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -101,7 +105,7 @@ public class PersistenceContextTest {
 	@Mock(answer = Answers.RETURNS_DEEP_STUBS)
 	private PropertyMeta idMeta;
 
-	private Long primaryKey = RandomUtils.nextLong();
+	private Long primaryKey = new Random().nextLong();
 
 	private CompleteBean entity = CompleteBeanTestBuilder.builder().id(primaryKey).buid();
 

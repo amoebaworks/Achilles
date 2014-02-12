@@ -16,10 +16,11 @@
  */
 package info.archinnov.achilles.test.integration.entity;
 
-import java.util.Date;
-import java.util.UUID;
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.Order;
+
+import java.util.Date;
+import java.util.UUID;
 
 public class ClusteredTweetId {
 	@Order(1)

@@ -15,13 +15,6 @@
  */
 package info.archinnov.achilles.internal.metadata.holder;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import info.archinnov.achilles.type.Pair;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import info.archinnov.achilles.internal.metadata.transcoding.CompoundTranscoder;
 import info.archinnov.achilles.internal.metadata.transcoding.DataTranscoder;
 import info.archinnov.achilles.internal.metadata.transcoding.ListTranscoder;
@@ -29,6 +22,14 @@ import info.archinnov.achilles.internal.metadata.transcoding.MapTranscoder;
 import info.archinnov.achilles.internal.metadata.transcoding.SetTranscoder;
 import info.archinnov.achilles.internal.metadata.transcoding.SimpleTranscoder;
 import info.archinnov.achilles.type.ConsistencyLevel;
+import info.archinnov.achilles.type.Pair;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import org.codehaus.jackson.map.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PropertyMetaBuilder {
 	private static final Logger log = LoggerFactory.getLogger(PropertyMetaBuilder.class);

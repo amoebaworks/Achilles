@@ -16,7 +16,9 @@
 package info.archinnov.achilles.internal.persistence.operations;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.internal.reflection.RowMethodInvoker;
 import info.archinnov.achilles.type.TypedMap;
 
@@ -27,9 +29,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -62,7 +64,7 @@ public class NativeQueryMapperTest {
 
 	@Test
 	public void should_map_rows() throws Exception {
-		Long id = RandomUtils.nextLong();
+		Long id = new Random().nextLong();
 		String name = "name";
 
 		def1 = ColumnDefinitionBuilder.buildColumnDef("keyspace", "table", "id", DataType.bigint());

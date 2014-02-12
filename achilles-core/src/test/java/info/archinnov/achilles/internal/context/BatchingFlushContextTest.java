@@ -21,16 +21,17 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import java.util.Arrays;
-import java.util.List;
-import info.archinnov.achilles.internal.context.AbstractFlushContext.FlushType;
-import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.interceptor.Event;
+import info.archinnov.achilles.internal.context.AbstractFlushContext.FlushType;
 import info.archinnov.achilles.internal.interceptor.EventHolder;
+import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.statement.wrapper.AbstractStatementWrapper;
 import info.archinnov.achilles.internal.statement.wrapper.BoundStatementWrapper;
 import info.archinnov.achilles.internal.statement.wrapper.RegularStatementWrapper;
 import info.archinnov.achilles.type.ConsistencyLevel;
+
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;

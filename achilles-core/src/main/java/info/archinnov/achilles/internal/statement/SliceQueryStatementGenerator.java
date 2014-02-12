@@ -15,15 +15,19 @@
  */
 package info.archinnov.achilles.internal.statement;
 
-import static com.datastax.driver.core.querybuilder.QueryBuilder.*;
-import static info.archinnov.achilles.type.OrderingMode.*;
-import info.archinnov.achilles.query.slice.CQLSliceQuery;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.eq;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.gt;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.gte;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.lt;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.lte;
+import static info.archinnov.achilles.type.OrderingMode.ASCENDING;
 import info.archinnov.achilles.internal.statement.wrapper.RegularStatementWrapper;
+import info.archinnov.achilles.query.slice.CQLSliceQuery;
 import info.archinnov.achilles.type.OrderingMode;
 
 import java.util.List;
 
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

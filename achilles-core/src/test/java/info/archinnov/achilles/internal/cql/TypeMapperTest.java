@@ -15,10 +15,33 @@
  */
 package info.archinnov.achilles.internal.cql;
 
-import static com.datastax.driver.core.DataType.Name.*;
-import static info.archinnov.achilles.internal.cql.TypeMapper.*;
+import static com.datastax.driver.core.DataType.Name.ASCII;
+import static com.datastax.driver.core.DataType.Name.BIGINT;
+import static com.datastax.driver.core.DataType.Name.BLOB;
+import static com.datastax.driver.core.DataType.Name.BOOLEAN;
+import static com.datastax.driver.core.DataType.Name.COUNTER;
+import static com.datastax.driver.core.DataType.Name.CUSTOM;
+import static com.datastax.driver.core.DataType.Name.DECIMAL;
+import static com.datastax.driver.core.DataType.Name.DOUBLE;
+import static com.datastax.driver.core.DataType.Name.FLOAT;
+import static com.datastax.driver.core.DataType.Name.INET;
+import static com.datastax.driver.core.DataType.Name.INT;
+import static com.datastax.driver.core.DataType.Name.LIST;
+import static com.datastax.driver.core.DataType.Name.MAP;
+import static com.datastax.driver.core.DataType.Name.SET;
+import static com.datastax.driver.core.DataType.Name.TEXT;
+import static com.datastax.driver.core.DataType.Name.TIMESTAMP;
+import static com.datastax.driver.core.DataType.Name.TIMEUUID;
+import static com.datastax.driver.core.DataType.Name.UUID;
+import static com.datastax.driver.core.DataType.Name.VARCHAR;
+import static com.datastax.driver.core.DataType.Name.VARINT;
+import static info.archinnov.achilles.internal.cql.TypeMapper.getRowMethod;
+import static info.archinnov.achilles.internal.cql.TypeMapper.toCQLType;
+import static info.archinnov.achilles.internal.cql.TypeMapper.toCompatibleJavaType;
+import static info.archinnov.achilles.internal.cql.TypeMapper.toJavaType;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.internal.metadata.holder.InternalTimeUUID;
 import info.archinnov.achilles.internal.metadata.holder.PropertyType;
 import info.archinnov.achilles.test.mapping.entity.UserBean;

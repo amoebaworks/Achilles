@@ -18,8 +18,13 @@ package info.archinnov.achilles.internal.persistence.operations;
 import static info.archinnov.achilles.internal.metadata.holder.PropertyType.EMBEDDED_ID;
 import static java.util.Arrays.asList;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.reflection.ReflectionInvoker;
@@ -33,8 +38,8 @@ import info.archinnov.achilles.test.parser.entity.EmbeddedKey;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -150,7 +155,7 @@ public class EntityMapperTest {
 
 	@Test
 	public void should_map_row_to_entity() throws Exception {
-		Long id = RandomUtils.nextLong();
+		Long id = new Random().nextLong();
 		PropertyMeta idMeta = mock(PropertyMeta.class);
 		PropertyMeta valueMeta = mock(PropertyMeta.class);
 

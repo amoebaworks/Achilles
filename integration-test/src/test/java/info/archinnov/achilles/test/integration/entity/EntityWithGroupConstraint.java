@@ -16,7 +16,8 @@
  */
 package info.archinnov.achilles.test.integration.entity;
 
-import static info.archinnov.achilles.interceptor.Event.*;
+import static info.archinnov.achilles.interceptor.Event.PRE_PERSIST;
+import static info.archinnov.achilles.interceptor.Event.PRE_UPDATE;
 import static info.archinnov.achilles.test.integration.entity.EntityWithGroupConstraint.TABLE_NAME;
 import static java.util.Arrays.asList;
 import info.archinnov.achilles.annotations.Column;

@@ -16,11 +16,14 @@
 package info.archinnov.achilles.internal.persistence.operations;
 
 import static info.archinnov.achilles.type.BoundingMode.EXCLUSIVE_BOUNDS;
-import static info.archinnov.achilles.type.ConsistencyLevel.*;
+import static info.archinnov.achilles.type.ConsistencyLevel.EACH_QUORUM;
+import static info.archinnov.achilles.type.ConsistencyLevel.LOCAL_QUORUM;
 import static info.archinnov.achilles.type.OrderingMode.ASCENDING;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.interceptor.Event;
 import info.archinnov.achilles.internal.context.ConfigurationContext;
 import info.archinnov.achilles.internal.context.DaoContext;
@@ -38,8 +41,8 @@ import info.archinnov.achilles.test.mapping.entity.ClusteredEntity;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -93,7 +96,7 @@ public class SliceQueryExecutorTest {
 	@Mock
 	private ClusteredEntity entity;
 
-	private Long partitionKey = RandomUtils.nextLong();
+	private Long partitionKey = new Random().nextLong();
 
 	private List<Object> partitionComponents = Arrays.<Object> asList(partitionKey);
 	private List<Object> clusteringsFrom = Arrays.<Object> asList("name1");

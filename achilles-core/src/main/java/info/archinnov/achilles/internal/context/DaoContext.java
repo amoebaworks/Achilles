@@ -15,9 +15,14 @@
  */
 package info.archinnov.achilles.internal.context;
 
-import static com.datastax.driver.core.querybuilder.QueryBuilder.*;
-import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.*;
-import static info.archinnov.achilles.counter.AchillesCounter.ClusteredCounterStatement.*;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.timestamp;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.ttl;
+import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.DECR;
+import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.DELETE;
+import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.INCR;
+import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.SELECT;
+import static info.archinnov.achilles.counter.AchillesCounter.ClusteredCounterStatement.DELETE_ALL;
+import static info.archinnov.achilles.counter.AchillesCounter.ClusteredCounterStatement.SELECT_ALL;
 import static info.archinnov.achilles.internal.consistency.ConsistencyConverter.getCQLLevel;
 import info.archinnov.achilles.counter.AchillesCounter.CQLQueryType;
 import info.archinnov.achilles.exception.AchillesException;
@@ -37,7 +42,7 @@ import info.archinnov.achilles.type.Pair;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

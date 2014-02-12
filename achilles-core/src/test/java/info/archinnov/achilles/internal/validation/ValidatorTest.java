@@ -15,14 +15,16 @@
  */
 package info.archinnov.achilles.internal.validation;
 
+import info.archinnov.achilles.exception.AchillesBeanMappingException;
+import info.archinnov.achilles.exception.AchillesException;
+import info.archinnov.achilles.test.parser.entity.UserBean;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.junit.Test;
-import info.archinnov.achilles.exception.AchillesBeanMappingException;
-import info.archinnov.achilles.exception.AchillesException;
-import info.archinnov.achilles.test.parser.entity.UserBean;
 
 public class ValidatorTest {
 

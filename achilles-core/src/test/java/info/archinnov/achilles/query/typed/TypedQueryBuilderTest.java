@@ -15,10 +15,16 @@
  */
 package info.archinnov.achilles.query.typed;
 
-import static info.archinnov.achilles.internal.metadata.holder.PropertyType.*;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SIMPLE;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.interceptor.Event;
 import info.archinnov.achilles.internal.context.DaoContext;
 import info.archinnov.achilles.internal.context.PersistenceContext;

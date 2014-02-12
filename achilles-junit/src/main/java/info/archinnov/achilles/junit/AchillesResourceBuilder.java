@@ -22,7 +22,7 @@ public class AchillesResourceBuilder {
 
 	private Steps cleanupSteps = Steps.BOTH;
 	private String[] tablesToCleanUp;
-    private String keyspaceName;
+	private String keyspaceName;
 	private String entityPackages;
 
 	private AchillesResourceBuilder() {

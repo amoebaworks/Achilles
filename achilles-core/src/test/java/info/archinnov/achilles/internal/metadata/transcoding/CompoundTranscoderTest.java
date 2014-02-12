@@ -18,25 +18,24 @@ package info.archinnov.achilles.internal.metadata.transcoding;
 import static info.archinnov.achilles.internal.metadata.holder.PropertyType.EMBEDDED_ID;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+import info.archinnov.achilles.internal.metadata.holder.PropertyType;
+import info.archinnov.achilles.internal.reflection.ReflectionInvoker;
+import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
+import info.archinnov.achilles.test.parser.entity.EmbeddedKey;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
-import org.apache.commons.lang.math.RandomUtils;
+import java.util.Random;
+
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.metadata.holder.PropertyType;
-import info.archinnov.achilles.internal.metadata.transcoding.CompoundTranscoder;
-import info.archinnov.achilles.internal.reflection.ReflectionInvoker;
-import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
-import info.archinnov.achilles.test.parser.entity.EmbeddedKey;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CompoundTranscoderTest {
@@ -56,7 +55,7 @@ public class CompoundTranscoderTest {
 
 	@Test
 	public void should_encode_to_components() throws Exception {
-		Long userId = RandomUtils.nextLong();
+		Long userId = new Random().nextLong();
 		String name = "name";
 		EmbeddedKey compound = new EmbeddedKey(userId, name);
 
@@ -102,7 +101,7 @@ public class CompoundTranscoderTest {
 
 	@Test
 	public void should_encode_components() throws Exception {
-		Long userId = RandomUtils.nextLong();
+		Long userId = new Random().nextLong();
 		String name = "name";
 
 		PropertyMeta pm = PropertyMetaTestBuilder.valueClass(EmbeddedKey.class).type(EMBEDDED_ID)
@@ -126,7 +125,7 @@ public class CompoundTranscoderTest {
 
 	@Test
 	public void should_decode_from_components_with_injection_by_setters() throws Exception {
-		Long userId = RandomUtils.nextLong();
+		Long userId = new Random().nextLong();
 		String name = "name";
 
 		Field userIdField = EmbeddedKey.class.getDeclaredField("userId");

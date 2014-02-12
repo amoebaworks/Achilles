@@ -15,10 +15,11 @@
  */
 package info.archinnov.achilles.test.parser.entity;
 
-import java.util.Map;
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.EmbeddedId;
 import info.archinnov.achilles.annotations.Entity;
+
+import java.util.Map;
 
 @Entity
 public class ClusteredEntityWithNotSupportedPropertyType {

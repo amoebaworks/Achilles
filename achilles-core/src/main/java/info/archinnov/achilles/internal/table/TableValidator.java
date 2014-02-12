@@ -15,8 +15,13 @@
  */
 package info.archinnov.achilles.internal.table;
 
-import static com.datastax.driver.core.DataType.*;
-import static info.archinnov.achilles.counter.AchillesCounter.*;
+import static com.datastax.driver.core.DataType.counter;
+import static com.datastax.driver.core.DataType.text;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_FQCN;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_PRIMARY_KEY;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_PROPERTY_NAME;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_TABLE;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_VALUE;
 import static info.archinnov.achilles.internal.cql.TypeMapper.toCQLType;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.InternalTimeUUID;

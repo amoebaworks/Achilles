@@ -15,10 +15,11 @@
  */
 package info.archinnov.achilles.internal.proxy.wrapper.builder;
 
-import java.util.Iterator;
-import java.util.Map.Entry;
 import info.archinnov.achilles.internal.context.PersistenceContext;
 import info.archinnov.achilles.internal.proxy.wrapper.EntryIteratorWrapper;
+
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 public class EntryIteratorWrapperBuilder extends AbstractWrapperBuilder<EntryIteratorWrapperBuilder> {
 	private Iterator<Entry<Object, Object>> target;

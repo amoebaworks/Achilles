@@ -18,7 +18,6 @@ package info.archinnov.achilles.test.integration.entity;
 
 import static info.archinnov.achilles.test.integration.entity.EntityWithLocalQuorumConsistency.TABLE_NAME;
 import static info.archinnov.achilles.type.ConsistencyLevel.LOCAL_QUORUM;
-
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.Consistency;
 import info.archinnov.achilles.annotations.Entity;

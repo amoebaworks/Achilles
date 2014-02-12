@@ -17,16 +17,18 @@
 package info.archinnov.achilles.test.integration;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-
-import org.apache.commons.lang.math.RandomUtils;
-import org.junit.Rule;
-import org.junit.Test;
-import com.datastax.driver.core.Row;
-import com.datastax.driver.core.Session;
+import info.archinnov.achilles.junit.AchillesTestResource.Steps;
 import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.persistence.PersistenceManagerFactory;
-import info.archinnov.achilles.junit.AchillesTestResource.Steps;
 import info.archinnov.achilles.test.integration.entity.User;
+
+import java.util.Random;
+
+import org.junit.Rule;
+import org.junit.Test;
+
+import com.datastax.driver.core.Row;
+import com.datastax.driver.core.Session;
 
 public class AchillesInternalCQLResourceTest {
 	@Rule
@@ -39,7 +41,7 @@ public class AchillesInternalCQLResourceTest {
 	@Test
 	public void should_bootstrap_embedded_server_and_entity_manager() throws Exception {
 
-		Long id = RandomUtils.nextLong();
+		Long id = new Random().nextLong();
 		manager.persist(new User(id, "fn", "ln"));
 
 		Row row = session.execute("SELECT * FROM User WHERE id=" + id).one();

@@ -15,11 +15,13 @@
  */
 package info.archinnov.achilles.internal.proxy.wrapper;
 
+import info.archinnov.achilles.internal.proxy.wrapper.builder.MapEntryWrapperBuilder;
+
 import java.util.Iterator;
 import java.util.Map.Entry;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import info.archinnov.achilles.internal.proxy.wrapper.builder.MapEntryWrapperBuilder;
 
 public class EntryIteratorWrapper extends AbstractWrapper implements Iterator<Entry<Object, Object>> {
 	private static final Logger log = LoggerFactory.getLogger(EntryIteratorWrapper.class);

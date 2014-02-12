@@ -1,20 +1,21 @@
 package info.archinnov.achilles.test.integration.tests;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-
-import java.util.List;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.exception.AchillesException;
 import info.archinnov.achilles.junit.AchillesTestResource.Steps;
+import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.test.integration.AchillesInternalCQLResource;
 import info.archinnov.achilles.test.integration.entity.ClusteredEntity;
 import info.archinnov.achilles.test.integration.entity.CompleteBean;
 import info.archinnov.achilles.test.integration.entity.CompleteBeanTestBuilder;
 import info.archinnov.achilles.test.integration.entity.EntityWithSecondaryIndex;
 import info.archinnov.achilles.type.IndexCondition;
+
+import java.util.List;
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class SecondaryIndexIT {
 

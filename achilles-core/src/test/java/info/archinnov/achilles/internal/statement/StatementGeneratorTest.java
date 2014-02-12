@@ -15,17 +15,23 @@
  */
 package info.archinnov.achilles.internal.statement;
 
-import static info.archinnov.achilles.internal.metadata.holder.PropertyType.*;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.EMBEDDED_ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.LIST;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.MAP;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SET;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SIMPLE;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.internal.context.DaoContext;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyType;
 import info.archinnov.achilles.internal.reflection.ReflectionInvoker;
-import info.archinnov.achilles.query.slice.CQLSliceQuery;
 import info.archinnov.achilles.internal.statement.wrapper.RegularStatementWrapper;
+import info.archinnov.achilles.query.slice.CQLSliceQuery;
 import info.archinnov.achilles.test.builders.CompleteBeanTestBuilder;
 import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
 import info.archinnov.achilles.test.mapping.entity.ClusteredEntity;
@@ -37,10 +43,10 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -126,7 +132,7 @@ public class StatementGeneratorTest {
     @Test
     public void should_generate_insert_for_simple_id() throws Exception {
         //Given
-        Long primaryKey = RandomUtils.nextLong();
+        Long primaryKey = new Random().nextLong();
         final String myName = "myName";
         CompleteBean entity = new CompleteBean();
         EntityMeta meta = mock(EntityMeta.class);
@@ -159,7 +165,7 @@ public class StatementGeneratorTest {
     public void should_generate_insert_for_composite_partition_key() throws Exception {
         //Given
         Object primaryKey = new Object();
-        Long id = RandomUtils.nextLong();
+        Long id = new Random().nextLong();
         String type = "type";
         final String myName = "myName";
         CompleteBean entity = new CompleteBean();
@@ -244,8 +250,8 @@ public class StatementGeneratorTest {
 				preferencesMeta));
 		meta.setIdMeta(idMeta);
 
-		Long id = RandomUtils.nextLong();
-		Long age = RandomUtils.nextLong();
+		Long id = new Random().nextLong();
+		Long age = new Random().nextLong();
 
 		List<String> friends = Arrays.asList("foo", "bar");
 
@@ -288,7 +294,7 @@ public class StatementGeneratorTest {
 		meta.setPropertyMetas(ImmutableMap.of("id", idMeta, "value", valueMeta));
 		meta.setIdMeta(idMeta);
 
-		Long userId = RandomUtils.nextLong();
+		Long userId = new Random().nextLong();
 		ClusteredEntity entity = new ClusteredEntity();
 		EmbeddedKey embeddedKey = new EmbeddedKey();
 		embeddedKey.setUserId(userId);

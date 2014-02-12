@@ -19,17 +19,18 @@ package info.archinnov.achilles.test.integration.tests;
 import static info.archinnov.achilles.test.integration.entity.ClusteredEntityWithReverseClustering.TABLE_NAME;
 import static info.archinnov.achilles.type.OrderingMode.DESCENDING;
 import static org.fest.assertions.api.Assertions.assertThat;
-
-import java.util.List;
-import org.apache.commons.lang.math.RandomUtils;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.junit.AchillesTestResource.Steps;
+import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.test.integration.AchillesInternalCQLResource;
 import info.archinnov.achilles.test.integration.entity.ClusteredEntityWithReverseClustering;
 import info.archinnov.achilles.test.integration.entity.ClusteredEntityWithReverseClustering.ClusteredKey;
+
+import java.util.List;
+import java.util.Random;
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class ClusteredEntityWithReverseClusteringIT {
 	@Rule
@@ -42,7 +43,7 @@ public class ClusteredEntityWithReverseClusteringIT {
 
 	@Test
 	public void should_query_with_default_params() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		List<ClusteredEntityWithReverseClustering> entities = manager
 				.sliceQuery(ClusteredEntityWithReverseClustering.class).partitionComponents(partitionKey).getFirst(5);
 		assertThat(entities).isEmpty();
@@ -89,7 +90,7 @@ public class ClusteredEntityWithReverseClusteringIT {
 
 	@Test
 	public void should_query_with_reverse_ordering() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		insertValues(partitionKey, 5);
 
 		List<ClusteredEntityWithReverseClustering> entities = manager

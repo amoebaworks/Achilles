@@ -16,14 +16,18 @@
 package info.archinnov.achilles.internal.persistence.operations;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.internal.context.PersistenceContext;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyType;
 import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 
-import org.apache.commons.lang.math.RandomUtils;
+import java.util.Random;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -57,7 +61,7 @@ public class EntityLoaderTest {
 	@Mock
 	private PropertyMeta pm;
 
-	private Long primaryKey = RandomUtils.nextLong();
+	private Long primaryKey = new Random().nextLong();
 
 	private CompleteBean entity = new CompleteBean();
 

@@ -17,10 +17,10 @@
 package info.archinnov.achilles.internal.persistence.operations;
 
 import static org.mockito.Mockito.when;
+import info.archinnov.achilles.exception.AchillesException;
 import info.archinnov.achilles.internal.context.PersistenceContext;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.exception.AchillesException;
 import info.archinnov.achilles.test.builders.CompleteBeanTestBuilder;
 import info.archinnov.achilles.test.mapping.entity.ClusteredEntityWithCounter;
 import info.archinnov.achilles.test.mapping.entity.CompleteBean;

@@ -15,15 +15,16 @@
  */
 package info.archinnov.achilles.test.parser.entity;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.Consistency;
 import info.archinnov.achilles.annotations.Entity;
 import info.archinnov.achilles.annotations.Id;
 import info.archinnov.achilles.type.ConsistencyLevel;
 import info.archinnov.achilles.type.Counter;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Entity
 @Consistency(read = ConsistencyLevel.ONE, write = ConsistencyLevel.ALL)

@@ -18,21 +18,20 @@ package info.archinnov.achilles.query.slice;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+import info.archinnov.achilles.internal.metadata.transcoding.DataTranscoder;
+import info.archinnov.achilles.test.mapping.entity.ClusteredEntity;
+import info.archinnov.achilles.type.BoundingMode;
+import info.archinnov.achilles.type.OrderingMode;
 
 import java.util.Arrays;
 import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.metadata.transcoding.DataTranscoder;
-import info.archinnov.achilles.query.slice.SliceQuery;
-import info.archinnov.achilles.test.mapping.entity.ClusteredEntity;
-import info.archinnov.achilles.type.BoundingMode;
-import info.archinnov.achilles.type.OrderingMode;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SliceQueryTest {

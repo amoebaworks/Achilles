@@ -15,9 +15,10 @@
  */
 package info.archinnov.achilles.internal.proxy.wrapper.builder;
 
-import java.util.List;
 import info.archinnov.achilles.internal.context.PersistenceContext;
 import info.archinnov.achilles.internal.proxy.wrapper.ListWrapper;
+
+import java.util.List;
 
 public class ListWrapperBuilder extends AbstractWrapperBuilder<ListWrapperBuilder> {
 	private List<Object> target;

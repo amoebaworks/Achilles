@@ -15,16 +15,18 @@
  */
 package info.archinnov.achilles.internal.metadata.parsing;
 
-import static info.archinnov.achilles.internal.metadata.holder.PropertyType.*;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.COUNTER;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.EMBEDDED_ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SIMPLE;
 import static org.fest.assertions.api.Assertions.assertThat;
+import info.archinnov.achilles.exception.AchillesBeanMappingException;
 import info.archinnov.achilles.internal.context.ConfigurationContext;
 import info.archinnov.achilles.internal.metadata.holder.CounterProperties;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyType;
-import info.archinnov.achilles.internal.metadata.parsing.EntityParser;
 import info.archinnov.achilles.internal.metadata.parsing.context.EntityParsingContext;
-import info.archinnov.achilles.exception.AchillesBeanMappingException;
 import info.archinnov.achilles.json.ObjectMapperFactory;
 import info.archinnov.achilles.test.parser.entity.Bean;
 import info.archinnov.achilles.test.parser.entity.BeanWithClusteredId;

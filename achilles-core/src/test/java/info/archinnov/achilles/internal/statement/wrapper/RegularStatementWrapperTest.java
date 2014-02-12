@@ -16,13 +16,14 @@
 
 package info.archinnov.achilles.internal.statement.wrapper;
 
-import static org.fest.assertions.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.fest.assertions.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+
 import com.datastax.driver.core.ConsistencyLevel;
 import com.datastax.driver.core.RegularStatement;
 import com.datastax.driver.core.Session;

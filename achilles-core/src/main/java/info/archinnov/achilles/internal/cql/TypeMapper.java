@@ -15,7 +15,26 @@
  */
 package info.archinnov.achilles.internal.cql;
 
-import static com.datastax.driver.core.DataType.Name.*;
+import static com.datastax.driver.core.DataType.Name.ASCII;
+import static com.datastax.driver.core.DataType.Name.BIGINT;
+import static com.datastax.driver.core.DataType.Name.BLOB;
+import static com.datastax.driver.core.DataType.Name.BOOLEAN;
+import static com.datastax.driver.core.DataType.Name.COUNTER;
+import static com.datastax.driver.core.DataType.Name.CUSTOM;
+import static com.datastax.driver.core.DataType.Name.DECIMAL;
+import static com.datastax.driver.core.DataType.Name.DOUBLE;
+import static com.datastax.driver.core.DataType.Name.FLOAT;
+import static com.datastax.driver.core.DataType.Name.INET;
+import static com.datastax.driver.core.DataType.Name.INT;
+import static com.datastax.driver.core.DataType.Name.LIST;
+import static com.datastax.driver.core.DataType.Name.MAP;
+import static com.datastax.driver.core.DataType.Name.SET;
+import static com.datastax.driver.core.DataType.Name.TEXT;
+import static com.datastax.driver.core.DataType.Name.TIMESTAMP;
+import static com.datastax.driver.core.DataType.Name.TIMEUUID;
+import static com.datastax.driver.core.DataType.Name.UUID;
+import static com.datastax.driver.core.DataType.Name.VARCHAR;
+import static com.datastax.driver.core.DataType.Name.VARINT;
 import static info.archinnov.achilles.internal.metadata.parsing.PropertyParser.isSupportedType;
 import info.archinnov.achilles.exception.AchillesException;
 import info.archinnov.achilles.internal.metadata.holder.InternalTimeUUID;

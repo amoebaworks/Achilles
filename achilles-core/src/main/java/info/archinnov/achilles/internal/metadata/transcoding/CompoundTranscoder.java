@@ -15,15 +15,16 @@
  */
 package info.archinnov.achilles.internal.metadata.transcoding;
 
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+import info.archinnov.achilles.internal.validation.Validator;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.validation.Validator;
 
 public class CompoundTranscoder extends AbstractTranscoder {
 

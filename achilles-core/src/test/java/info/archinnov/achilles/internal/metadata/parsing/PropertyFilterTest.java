@@ -16,15 +16,15 @@
 package info.archinnov.achilles.internal.metadata.parsing;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-
-import java.lang.reflect.Field;
-import org.junit.Test;
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.Id;
-import info.archinnov.achilles.internal.metadata.parsing.PropertyFilter;
 import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 import info.archinnov.achilles.test.parser.entity.BeanWithClusteredId;
 import info.archinnov.achilles.test.parser.entity.ParentBean;
+
+import java.lang.reflect.Field;
+
+import org.junit.Test;
 
 public class PropertyFilterTest {
 	private PropertyFilter filter = new PropertyFilter();

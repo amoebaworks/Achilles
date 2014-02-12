@@ -16,8 +16,10 @@
 package info.archinnov.achilles.internal.context;
 
 import static com.google.common.cache.CacheBuilder.newBuilder;
-import static com.google.common.collect.Maps.*;
-import static info.archinnov.achilles.internal.metadata.holder.EntityMeta.*;
+import static com.google.common.collect.Maps.filterValues;
+import static com.google.common.collect.Maps.transformValues;
+import static info.archinnov.achilles.internal.metadata.holder.EntityMeta.CLUSTERED_COUNTER_FILTER;
+import static info.archinnov.achilles.internal.metadata.holder.EntityMeta.EXCLUDE_CLUSTERED_COUNTER_FILTER;
 import info.archinnov.achilles.counter.AchillesCounter.CQLQueryType;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.statement.cache.StatementCacheKey;

@@ -15,12 +15,13 @@
  */
 package info.archinnov.achilles.internal.metadata.util;
 
-import java.util.Set;
-import com.google.common.base.Predicate;
-import com.google.common.collect.Sets;
-
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyType;
+
+import java.util.Set;
+
+import com.google.common.base.Predicate;
+import com.google.common.collect.Sets;
 
 public class PropertyTypeFilter implements Predicate<PropertyMeta> {
 	private final Set<PropertyType> types;

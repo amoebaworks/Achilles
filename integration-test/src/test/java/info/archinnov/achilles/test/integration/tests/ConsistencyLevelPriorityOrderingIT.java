@@ -17,15 +17,17 @@
 package info.archinnov.achilles.test.integration.tests;
 
 import static info.archinnov.achilles.test.integration.entity.ClusteredEntity.TABLE_NAME;
-import static info.archinnov.achilles.type.ConsistencyLevel.*;
+import static info.archinnov.achilles.type.ConsistencyLevel.EACH_QUORUM;
+import static info.archinnov.achilles.type.ConsistencyLevel.ONE;
+import static info.archinnov.achilles.type.ConsistencyLevel.THREE;
 import static org.fest.assertions.api.Assertions.assertThat;
+import info.archinnov.achilles.exception.AchillesException;
 import info.archinnov.achilles.internal.context.BatchingFlushContext;
+import info.archinnov.achilles.internal.statement.wrapper.AbstractStatementWrapper;
+import info.archinnov.achilles.junit.AchillesTestResource.Steps;
 import info.archinnov.achilles.persistence.BatchingPersistenceManager;
 import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.persistence.PersistenceManagerFactory;
-import info.archinnov.achilles.exception.AchillesException;
-import info.archinnov.achilles.junit.AchillesTestResource.Steps;
-import info.archinnov.achilles.internal.statement.wrapper.AbstractStatementWrapper;
 import info.archinnov.achilles.test.integration.AchillesInternalCQLResource;
 import info.archinnov.achilles.test.integration.entity.ClusteredEntity;
 import info.archinnov.achilles.test.integration.entity.EntityWithConsistencyLevelOnClassAndField;
@@ -35,8 +37,8 @@ import info.archinnov.achilles.type.Counter;
 import info.archinnov.achilles.type.CounterBuilder;
 
 import java.util.List;
+import java.util.Random;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -63,7 +65,7 @@ public class ConsistencyLevelPriorityOrderingIT {
 	@Test
 	public void should_override_mapping_on_class_by_runtime_value_on_batch_mode_for_normal_type() throws Exception {
 		EntityWithConsistencyLevelOnClassAndField entity = new EntityWithConsistencyLevelOnClassAndField();
-		long id = RandomUtils.nextLong();
+		long id = new Random().nextLong();
 		entity.setId(id);
 		entity.setName("name");
 
@@ -90,7 +92,7 @@ public class ConsistencyLevelPriorityOrderingIT {
 	@Test
 	public void should_not_override_batch_mode_level_by_runtime_value_for_normal_type() throws Exception {
 		EntityWithConsistencyLevelOnClassAndField entity = new EntityWithConsistencyLevelOnClassAndField();
-		entity.setId(RandomUtils.nextLong());
+		entity.setId(new Random().nextLong());
 		entity.setName("name sdfsdf");
 		manager.persist(entity);
 
@@ -109,7 +111,7 @@ public class ConsistencyLevelPriorityOrderingIT {
 	@Test
 	public void should_override_mapping_on_class_by_mapping_on_field_for_counter_type() throws Exception {
 		EntityWithConsistencyLevelOnClassAndField entity = new EntityWithConsistencyLevelOnClassAndField();
-		entity.setId(RandomUtils.nextLong());
+		entity.setId(new Random().nextLong());
 		entity.setName("name");
         entity.setCount(CounterBuilder.incr());
 		entity = manager.persist(entity);
@@ -125,7 +127,7 @@ public class ConsistencyLevelPriorityOrderingIT {
 	@Test
 	public void should_override_mapping_on_field_by_batch_value_for_counter_type() throws Exception {
 		EntityWithConsistencyLevelOnClassAndField entity = new EntityWithConsistencyLevelOnClassAndField();
-		entity.setId(RandomUtils.nextLong());
+		entity.setId(new Random().nextLong());
 		entity.setName("name");
         entity.setCount(CounterBuilder.incr());
 

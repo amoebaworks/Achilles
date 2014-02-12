@@ -15,8 +15,9 @@
  */
 package info.archinnov.achilles.test.parser.entity;
 
-import java.util.Date;
 import info.archinnov.achilles.annotations.Order;
+
+import java.util.Date;
 
 public class EmbeddedKeyWithDuplicateOrder {
 	@Order(1)

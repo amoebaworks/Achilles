@@ -16,7 +16,6 @@
 package info.archinnov.achilles.internal.metadata.parsing.validator;
 
 import info.archinnov.achilles.exception.AchillesBeanMappingException;
-import info.archinnov.achilles.internal.metadata.parsing.validator.EntityParsingValidator;
 import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 
 import org.junit.Rule;

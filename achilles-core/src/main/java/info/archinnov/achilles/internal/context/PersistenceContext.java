@@ -17,7 +17,13 @@ package info.archinnov.achilles.internal.context;
 
 import static com.google.common.collect.FluentIterable.from;
 import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_VALUE;
-import static info.archinnov.achilles.interceptor.Event.*;
+import static info.archinnov.achilles.interceptor.Event.POST_LOAD;
+import static info.archinnov.achilles.interceptor.Event.POST_PERSIST;
+import static info.archinnov.achilles.interceptor.Event.POST_REMOVE;
+import static info.archinnov.achilles.interceptor.Event.POST_UPDATE;
+import static info.archinnov.achilles.interceptor.Event.PRE_PERSIST;
+import static info.archinnov.achilles.interceptor.Event.PRE_REMOVE;
+import static info.archinnov.achilles.interceptor.Event.PRE_UPDATE;
 import info.archinnov.achilles.exception.AchillesStaleObjectStateException;
 import info.archinnov.achilles.internal.consistency.ConsistencyOverrider;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
@@ -350,11 +356,11 @@ public class PersistenceContext {
 	}
 
 	public Set<Method> getAllGetters() {
-		return new HashSet<>(from(entityMeta.getAllMetas()).transform(metaToGetter).toImmutableSet());
+		return new HashSet<>(from(entityMeta.getAllMetas()).transform(metaToGetter).toSet());
 	}
 
 	public Set<Method> getAllGettersExceptCounters() {
-		return new HashSet<>(from(entityMeta.getAllMetasExceptCounters()).transform(metaToGetter).toImmutableSet());
+		return new HashSet<>(from(entityMeta.getAllMetasExceptCounters()).transform(metaToGetter).toSet());
 	}
 
 	public List<PropertyMeta> getAllCountersMeta() {

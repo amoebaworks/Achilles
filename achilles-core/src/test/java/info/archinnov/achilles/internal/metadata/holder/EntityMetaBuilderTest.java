@@ -16,12 +16,11 @@
 package info.archinnov.achilles.internal.metadata.holder;
 
 import static info.archinnov.achilles.internal.metadata.holder.EntityMetaBuilder.entityMetaBuilder;
-import static info.archinnov.achilles.internal.metadata.holder.PropertyType.*;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.COUNTER;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.EMBEDDED_ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SIMPLE;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
-import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.metadata.holder.PropertyType;
 import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
 import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 import info.archinnov.achilles.test.parser.entity.Bean;

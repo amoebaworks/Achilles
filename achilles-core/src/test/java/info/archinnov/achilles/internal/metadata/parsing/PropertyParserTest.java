@@ -16,7 +16,9 @@
 package info.archinnov.achilles.internal.metadata.parsing;
 
 import static info.archinnov.achilles.internal.metadata.parsing.PropertyParser.isSupportedType;
-import static info.archinnov.achilles.type.ConsistencyLevel.*;
+import static info.archinnov.achilles.type.ConsistencyLevel.ALL;
+import static info.archinnov.achilles.type.ConsistencyLevel.ANY;
+import static info.archinnov.achilles.type.ConsistencyLevel.ONE;
 import static org.fest.assertions.api.Assertions.assertThat;
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.Consistency;

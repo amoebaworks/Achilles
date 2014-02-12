@@ -17,8 +17,13 @@
 package info.archinnov.achilles.internal.persistence.operations;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Matchers.anySetOf;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.internal.context.PersistenceContext;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
@@ -36,6 +41,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 import net.sf.cglib.proxy.Callback;
@@ -43,7 +49,6 @@ import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.Factory;
 import net.sf.cglib.proxy.NoOp;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -98,7 +103,7 @@ public class EntityProxifierTest {
 	@Test
 	public void should_build_proxy_with_all_fields_loaded() throws Exception {
 
-		long primaryKey = RandomUtils.nextLong();
+		long primaryKey = new Random().nextLong();
 		PropertyMeta pm = mock(PropertyMeta.class);
 		Object value = new Object();
 

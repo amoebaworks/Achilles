@@ -29,9 +29,9 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -165,7 +165,7 @@ public class ReflectionInvokerTest {
 
 	@Test
 	public void should_get_primary_key() throws Exception {
-		Long id = RandomUtils.nextLong();
+		Long id = new Random().nextLong();
 		CompleteBean bean = new CompleteBean(id);
 
 		PropertyMeta idMeta = PropertyMetaTestBuilder.completeBean(Void.class, Long.class).type(ID).field("id")
@@ -197,7 +197,7 @@ public class ReflectionInvokerTest {
 
 	@Test
 	public void should_get_partition_key() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		Field userIdField = EmbeddedKey.class.getDeclaredField("userId");
 		PropertyMeta idMeta = PropertyMetaTestBuilder.valueClass(EmbeddedKey.class).compFields(userIdField)
 				.type(PropertyType.EMBEDDED_ID).build();
@@ -223,7 +223,7 @@ public class ReflectionInvokerTest {
 
 	@Test
 	public void should_return_null_for_partition_key_if_not_embedded_id() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		Field userIdField = EmbeddedKey.class.getDeclaredField("userId");
 		PropertyMeta idMeta = PropertyMetaTestBuilder.valueClass(EmbeddedKey.class).compFields(userIdField)
 				.type(PropertyType.ID).build();
@@ -242,7 +242,7 @@ public class ReflectionInvokerTest {
 
 	@Test
 	public void should_instanciate_embedded_id_with_partition_key_using_default_constructor() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 
 		Field userIdField = EmbeddedKey.class.getDeclaredField("userId");
 		PropertyMeta idMeta = PropertyMetaTestBuilder.valueClass(EmbeddedKey.class).compFields(userIdField).build();

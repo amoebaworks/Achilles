@@ -17,13 +17,13 @@
 package info.archinnov.achilles.test.integration.entity;
 
 import static info.archinnov.achilles.test.integration.entity.ClusteredEntityWithTimeUUID.TABLE_NAME;
-
-import java.util.UUID;
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.EmbeddedId;
 import info.archinnov.achilles.annotations.Entity;
 import info.archinnov.achilles.annotations.Order;
 import info.archinnov.achilles.annotations.TimeUUID;
+
+import java.util.UUID;
 
 @Entity(table = TABLE_NAME)
 public class ClusteredEntityWithTimeUUID {

@@ -20,13 +20,8 @@ import static info.archinnov.achilles.type.ConsistencyLevel.EACH_QUORUM;
 import static info.archinnov.achilles.type.ConsistencyLevel.LOCAL_QUORUM;
 import static info.archinnov.achilles.type.OptionsBuilder.noOptions;
 import static info.archinnov.achilles.type.OptionsBuilder.withConsistency;
-import static org.fest.assertions.api.Assertions.*;
+import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 import info.archinnov.achilles.internal.context.AbstractFlushContext;
 import info.archinnov.achilles.internal.context.BatchingFlushContext;
 import info.archinnov.achilles.internal.context.ImmediateFlushContext;
@@ -35,6 +30,11 @@ import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.type.ConsistencyLevel;
 import info.archinnov.achilles.type.Options;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ConsistencyOverriderTest {

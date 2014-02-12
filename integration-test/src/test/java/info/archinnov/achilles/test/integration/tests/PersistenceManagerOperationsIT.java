@@ -17,20 +17,20 @@
 package info.archinnov.achilles.test.integration.tests;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.exception.AchillesStaleObjectStateException;
 import info.archinnov.achilles.junit.AchillesTestResource.Steps;
+import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.test.integration.AchillesInternalCQLResource;
 import info.archinnov.achilles.test.integration.entity.CompleteBean;
 import info.archinnov.achilles.test.integration.entity.CompleteBeanTestBuilder;
+import info.archinnov.achilles.type.CounterBuilder;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
-import info.archinnov.achilles.type.CounterBuilder;
 import net.sf.cglib.proxy.Factory;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -192,7 +192,7 @@ public class PersistenceManagerOperationsIT {
 		exception.expect(IllegalAccessException.class);
 		exception.expectMessage("Cannot change primary key value for existing entity");
 
-		entity.setId(RandomUtils.nextLong());
+		entity.setId(new Random().nextLong());
 	}
 
 	@Test

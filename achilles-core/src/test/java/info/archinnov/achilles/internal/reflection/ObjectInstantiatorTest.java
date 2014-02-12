@@ -16,7 +16,7 @@
 
 package info.archinnov.achilles.internal.reflection;
 
-import static org.fest.assertions.api.Assertions.*;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

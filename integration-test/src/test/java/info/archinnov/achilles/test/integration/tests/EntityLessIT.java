@@ -1,7 +1,7 @@
 package info.archinnov.achilles.test.integration.tests;
 
-import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.*;
-import static org.fest.assertions.api.Assertions.*;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.DEFAULT_CASSANDRA_HOST;
+import static org.fest.assertions.api.Assertions.assertThat;
 import info.archinnov.achilles.embedded.CassandraEmbeddedServer;
 import info.archinnov.achilles.embedded.CassandraEmbeddedServerBuilder;
 import info.archinnov.achilles.persistence.PersistenceManager;

@@ -16,13 +16,13 @@
 package info.archinnov.achilles.query.slice;
 
 import static info.archinnov.achilles.type.OrderingMode.ASCENDING;
-import info.archinnov.achilles.type.OrderingMode;
 import info.archinnov.achilles.internal.validation.Validator;
+import info.archinnov.achilles.type.OrderingMode;
 
 import java.util.Comparator;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

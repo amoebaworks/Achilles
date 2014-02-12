@@ -15,14 +15,23 @@
  */
 package info.archinnov.achilles.internal.statement.prepared;
 
-import static info.archinnov.achilles.counter.AchillesCounter.*;
-import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.*;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_FQCN;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_PRIMARY_KEY;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_PROPERTY_NAME;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_TABLE;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_VALUE;
+import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.DECR;
+import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.DELETE;
+import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.INCR;
+import static info.archinnov.achilles.counter.AchillesCounter.CQLQueryType.SELECT;
 import static info.archinnov.achilles.counter.AchillesCounter.ClusteredCounterStatement.DELETE_ALL;
-import static info.archinnov.achilles.internal.metadata.holder.PropertyType.*;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.COUNTER;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.ID;
 import static info.archinnov.achilles.test.builders.PropertyMetaTestBuilder.completeBean;
 import static java.util.Arrays.asList;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.counter.AchillesCounter.CQLQueryType;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;

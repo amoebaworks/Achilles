@@ -15,12 +15,14 @@
  */
 package info.archinnov.achilles.internal.metadata.holder;
 
-import static info.archinnov.achilles.internal.metadata.holder.PropertyType.*;
-import static info.archinnov.achilles.type.ConsistencyLevel.*;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.EMBEDDED_ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.LIST;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.MAP;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SET;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SIMPLE;
+import static info.archinnov.achilles.type.ConsistencyLevel.ALL;
+import static info.archinnov.achilles.type.ConsistencyLevel.ONE;
 import static org.fest.assertions.api.Assertions.assertThat;
-import info.archinnov.achilles.internal.metadata.holder.EmbeddedIdProperties;
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.metadata.holder.PropertyMetaBuilder;
 import info.archinnov.achilles.internal.metadata.transcoding.CompoundTranscoder;
 import info.archinnov.achilles.internal.metadata.transcoding.ListTranscoder;
 import info.archinnov.achilles.internal.metadata.transcoding.MapTranscoder;

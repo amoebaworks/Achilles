@@ -24,8 +24,22 @@
 
 package info.archinnov.achilles.embedded;
 
-import static info.archinnov.achilles.embedded.CassandraConfig.*;
-import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.*;
+import static info.archinnov.achilles.embedded.CassandraConfig.cqlRandomPort;
+import static info.archinnov.achilles.embedded.CassandraConfig.storageRandomPort;
+import static info.archinnov.achilles.embedded.CassandraConfig.storageSslRandomPort;
+import static info.archinnov.achilles.embedded.CassandraConfig.thriftRandomPort;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.CASSANDRA_CQL_PORT;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.CASSANDRA_STORAGE_PORT;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.CASSANDRA_STORAGE_SSL_PORT;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.CASSANDRA_THRIFT_PORT;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.CLEAN_CASSANDRA_CONFIG_FILE;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.CLEAN_CASSANDRA_DATA_FILES;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.COMMIT_LOG_FOLDER;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.CONFIG_YAML_FILE;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.DATA_FILE_FOLDER;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.DEFAULT_ACHILLES_TEST_FOLDERS;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.DEFAULT_ACHILLES_TEST_TRIGGERS_FOLDER;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.SAVED_CACHES_FOLDER;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import info.archinnov.achilles.internal.validation.Validator;
 import info.archinnov.achilles.type.TypedMap;
@@ -47,7 +61,7 @@ import javax.management.ReflectionException;
 
 import org.apache.cassandra.service.CassandraDaemon;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

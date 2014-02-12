@@ -19,9 +19,8 @@ package info.archinnov.achilles.test.builders;
 import info.archinnov.achilles.test.integration.entity.Tweet;
 import info.archinnov.achilles.test.integration.entity.User;
 
+import java.util.Random;
 import java.util.UUID;
-
-import org.apache.commons.lang.math.RandomUtils;
 
 public class TweetTestBuilder {
 
@@ -50,7 +49,7 @@ public class TweetTestBuilder {
 	}
 
 	public TweetTestBuilder randomId() {
-		this.id = new UUID(RandomUtils.nextLong(), RandomUtils.nextLong());
+		this.id = new UUID(new Random().nextLong(), new Random().nextLong());
 		return this;
 	}
 

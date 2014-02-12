@@ -25,8 +25,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import com.datastax.driver.core.ColumnMetadataBuilder;
+
 import com.datastax.driver.core.ColumnMetadata;
+import com.datastax.driver.core.ColumnMetadataBuilder;
 import com.datastax.driver.core.DataType;
 import com.datastax.driver.core.TableMetadata;
 

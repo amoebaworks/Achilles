@@ -17,17 +17,21 @@
 package info.archinnov.achilles.internal.persistence.operations;
 
 import static java.util.Arrays.asList;
-import static org.mockito.Mockito.*;
+import static org.mockito.Matchers.anyLong;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import info.archinnov.achilles.internal.context.PersistenceContext;
+import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+import info.archinnov.achilles.type.Counter;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import info.archinnov.achilles.internal.context.PersistenceContext;
-import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.type.Counter;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CounterPersisterTest {

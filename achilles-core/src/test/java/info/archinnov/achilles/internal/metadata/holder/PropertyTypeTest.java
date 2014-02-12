@@ -16,7 +16,6 @@
 package info.archinnov.achilles.internal.metadata.holder;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-import info.archinnov.achilles.internal.metadata.holder.PropertyType;
 
 import org.junit.Test;
 

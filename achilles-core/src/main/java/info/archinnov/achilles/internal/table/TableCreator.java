@@ -15,14 +15,18 @@
  */
 package info.archinnov.achilles.internal.table;
 
-import static info.archinnov.achilles.counter.AchillesCounter.*;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_FQCN;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_PRIMARY_KEY;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_PROPERTY_NAME;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_TABLE;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_VALUE;
+import info.archinnov.achilles.exception.AchillesInvalidTableException;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.IndexProperties;
 import info.archinnov.achilles.internal.metadata.holder.InternalTimeUUID;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.exception.AchillesInvalidTableException;
-import info.archinnov.achilles.type.Counter;
 import info.archinnov.achilles.internal.validation.Validator;
+import info.archinnov.achilles.type.Counter;
 
 import java.util.HashMap;
 import java.util.List;

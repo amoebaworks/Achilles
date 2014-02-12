@@ -15,11 +15,22 @@
  */
 package info.archinnov.achilles.internal.table;
 
-import static info.archinnov.achilles.counter.AchillesCounter.*;
-import static info.archinnov.achilles.internal.metadata.holder.PropertyType.*;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_FQCN;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_PRIMARY_KEY;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_PROPERTY_NAME;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_TABLE;
+import static info.archinnov.achilles.counter.AchillesCounter.CQL_COUNTER_VALUE;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.COUNTER;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.EMBEDDED_ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.LIST;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.MAP;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SET;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SIMPLE;
 import static java.util.Arrays.asList;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.exception.AchillesInvalidTableException;
 import info.archinnov.achilles.internal.metadata.holder.ClusteringComponents;
 import info.archinnov.achilles.internal.metadata.holder.EmbeddedIdProperties;

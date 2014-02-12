@@ -20,8 +20,8 @@ import static info.archinnov.achilles.internal.cql.TypeMapper.toCQLType;
 import static info.archinnov.achilles.internal.table.TableCreator.ACHILLES_DDL_SCRIPT;
 import static info.archinnov.achilles.internal.table.TableNameNormalizer.normalizerAndValidateColumnFamilyName;
 import info.archinnov.achilles.internal.metadata.holder.IndexProperties;
-import info.archinnov.achilles.type.Pair;
 import info.archinnov.achilles.internal.validation.Validator;
+import info.archinnov.achilles.type.Pair;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -18,7 +18,10 @@ package info.archinnov.achilles.embedded;
 
 import static com.datastax.driver.core.ProtocolOptions.Compression.SNAPPY;
 import static info.archinnov.achilles.configuration.ConfigurationParameters.KEYSPACE_NAME_PARAM;
-import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.*;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.BUILD_NATIVE_SESSION_ONLY;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.CASSANDRA_CQL_PORT;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.DEFAULT_CASSANDRA_HOST;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.KEYSPACE_DURABLE_WRITE;
 import static info.archinnov.achilles.embedded.StateRepository.REPOSITORY;
 import info.archinnov.achilles.configuration.ConfigurationParameters;
 import info.archinnov.achilles.internal.validation.Validator;
@@ -29,7 +32,7 @@ import info.archinnov.achilles.type.TypedMap;
 
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Row;

@@ -15,11 +15,11 @@
  */
 package info.archinnov.achilles.internal.metadata.transcoding;
 
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 
 public interface DataTranscoder {
 

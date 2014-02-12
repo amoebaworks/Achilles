@@ -15,13 +15,20 @@
  */
 package info.archinnov.achilles.internal.statement.prepared;
 
-import static info.archinnov.achilles.internal.metadata.holder.PropertyType.*;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.EMBEDDED_ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.LIST;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.MAP;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SET;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SIMPLE;
 import static info.archinnov.achilles.test.builders.PropertyMetaTestBuilder.completeBean;
 import static info.archinnov.achilles.type.ConsistencyLevel.ALL;
 import static java.util.Arrays.asList;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.metadata.transcoding.DataTranscoder;
@@ -34,9 +41,9 @@ import info.archinnov.achilles.test.parser.entity.EmbeddedKey;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
@@ -86,8 +93,8 @@ public class PreparedStatementBinderTest {
 
 	@Test
 	public void should_bind_for_insert_with_simple_id() throws Exception {
-		long primaryKey = RandomUtils.nextLong();
-		long age = RandomUtils.nextLong();
+		long primaryKey = new Random().nextLong();
+		long age = new Random().nextLong();
 		String name = "name";
 
 		PropertyMeta idMeta = completeBean(Void.class, Long.class).field("id").accessors().type(ID)
@@ -134,7 +141,7 @@ public class PreparedStatementBinderTest {
 		entityMeta.setAllMetasExceptIdAndCounters(asList(nameMeta, ageMeta));
 		entityMeta.setClusteredCounter(false);
 
-		long primaryKey = RandomUtils.nextLong();
+		long primaryKey = new Random().nextLong();
 		String name = "name";
 		when(invoker.getPrimaryKey(entity, idMeta)).thenReturn(primaryKey);
 		when(invoker.getValueFromField(entity, nameMeta.getField())).thenReturn(name);
@@ -154,8 +161,8 @@ public class PreparedStatementBinderTest {
 
 	@Test
 	public void should_bind_for_insert_with_compound_key() throws Exception {
-		long userId = RandomUtils.nextLong();
-		long age = RandomUtils.nextLong();
+		long userId = new Random().nextLong();
+		long age = new Random().nextLong();
 		String name = "name";
 		List<Object> friends = Arrays.<Object> asList("foo", "bar");
 		Set<Object> followers = Sets.<Object> newHashSet("George", "Paul");
@@ -207,7 +214,7 @@ public class PreparedStatementBinderTest {
 		PropertyMeta idMeta = completeBean(Void.class, Long.class).field("id").accessors().type(ID)
 				.transcoder(transcoder).invoker(invoker).build();
 		entityMeta.setIdMeta(idMeta);
-		long primaryKey = RandomUtils.nextLong();
+		long primaryKey = new Random().nextLong();
 
 		when(transcoder.encode(idMeta, primaryKey)).thenReturn(primaryKey);
 
@@ -232,8 +239,8 @@ public class PreparedStatementBinderTest {
 
 		entityMeta.setIdMeta(idMeta);
 
-		long primaryKey = RandomUtils.nextLong();
-		long age = RandomUtils.nextLong();
+		long primaryKey = new Random().nextLong();
+		long age = new Random().nextLong();
 		String name = "name";
 
 		when(invoker.getPrimaryKey(entity, idMeta)).thenReturn(primaryKey);
@@ -265,8 +272,8 @@ public class PreparedStatementBinderTest {
 		PropertyMeta counterMeta = completeBean(Void.class, Long.class).field("count").transcoder(transcoder)
 				.invoker(invoker).build();
 
-		Long primaryKey = RandomUtils.nextLong();
-		Long counter = RandomUtils.nextLong();
+		Long primaryKey = new Random().nextLong();
+		Long counter = new Random().nextLong();
 
 		when(transcoder.forceEncodeToJSON(primaryKey)).thenReturn(primaryKey.toString());
 		when(transcoder.forceEncodeToJSON(counter)).thenReturn(counter.toString());
@@ -291,7 +298,7 @@ public class PreparedStatementBinderTest {
 		PropertyMeta counterMeta = completeBean(Void.class, Long.class).field("count").transcoder(transcoder)
 				.invoker(invoker).build();
 
-		Long primaryKey = RandomUtils.nextLong();
+		Long primaryKey = new Random().nextLong();
 
 		when(transcoder.forceEncodeToJSON(primaryKey)).thenReturn(primaryKey.toString());
 		when(ps.bind("CompleteBean", primaryKey.toString(), "count")).thenReturn(bs);
@@ -314,7 +321,7 @@ public class PreparedStatementBinderTest {
 		PropertyMeta counterMeta = completeBean(Void.class, Long.class).field("count").transcoder(transcoder)
 				.invoker(invoker).build();
 
-		Long primaryKey = RandomUtils.nextLong();
+		Long primaryKey = new Random().nextLong();
 
 		when(transcoder.forceEncodeToJSON(primaryKey)).thenReturn(primaryKey.toString());
 		when(ps.bind("CompleteBean", primaryKey.toString(), "count")).thenReturn(bs);
@@ -334,8 +341,8 @@ public class PreparedStatementBinderTest {
 		meta.setClassName("CompleteBean");
 		meta.setIdMeta(idMeta);
 
-		Long primaryKey = RandomUtils.nextLong();
-		Long counter = RandomUtils.nextLong();
+		Long primaryKey = new Random().nextLong();
+		Long counter = new Random().nextLong();
 
 		when(transcoder.encode(idMeta, primaryKey)).thenReturn(primaryKey);
 		when(ps.bind(counter, primaryKey)).thenReturn(bs);
@@ -357,7 +364,7 @@ public class PreparedStatementBinderTest {
 		meta.setClassName("CompleteBean");
 		meta.setIdMeta(idMeta);
 
-		Long primaryKey = RandomUtils.nextLong();
+		Long primaryKey = new Random().nextLong();
 
 		when(transcoder.encode(idMeta, primaryKey)).thenReturn(primaryKey);
 		when(ps.bind(primaryKey)).thenReturn(bs);
@@ -378,7 +385,7 @@ public class PreparedStatementBinderTest {
 		meta.setClassName("CompleteBean");
 		meta.setIdMeta(idMeta);
 
-		Long primaryKey = RandomUtils.nextLong();
+		Long primaryKey = new Random().nextLong();
 
 		when(transcoder.encode(idMeta, primaryKey)).thenReturn(primaryKey);
 		when(ps.bind(primaryKey)).thenReturn(bs);

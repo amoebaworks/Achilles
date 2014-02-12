@@ -16,13 +16,15 @@
 package info.archinnov.achilles.internal.helper;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.Test;
+
 import com.google.common.collect.Lists;
-import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 
 public class LoggerHelperTest {
 

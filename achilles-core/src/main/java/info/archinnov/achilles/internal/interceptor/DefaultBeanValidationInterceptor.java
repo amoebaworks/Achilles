@@ -16,9 +16,10 @@
 
 package info.archinnov.achilles.internal.interceptor;
 
-import static info.archinnov.achilles.interceptor.Event.*;
+import static info.archinnov.achilles.interceptor.Event.PRE_PERSIST;
+import static info.archinnov.achilles.interceptor.Event.PRE_UPDATE;
 import static java.util.Arrays.asList;
-import static org.apache.commons.lang.StringUtils.isNotBlank;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import info.archinnov.achilles.exception.AchillesBeanValidationException;
 import info.archinnov.achilles.interceptor.Event;
 import info.archinnov.achilles.interceptor.Interceptor;

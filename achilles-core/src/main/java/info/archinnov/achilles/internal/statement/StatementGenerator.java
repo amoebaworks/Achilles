@@ -15,7 +15,11 @@
  */
 package info.archinnov.achilles.internal.statement;
 
-import static com.datastax.driver.core.querybuilder.QueryBuilder.*;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.eq;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.insertInto;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.select;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.set;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.update;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.statement.wrapper.RegularStatementWrapper;
@@ -25,7 +29,7 @@ import info.archinnov.achilles.type.Pair;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

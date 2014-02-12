@@ -15,10 +15,13 @@
  */
 package info.archinnov.achilles.persistence;
 
-import static info.archinnov.achilles.type.ConsistencyLevel.*;
+import static info.archinnov.achilles.type.ConsistencyLevel.EACH_QUORUM;
+import static info.archinnov.achilles.type.ConsistencyLevel.LOCAL_QUORUM;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.internal.context.ConfigurationContext;
 import info.archinnov.achilles.internal.context.DaoContext;
 import info.archinnov.achilles.internal.context.PersistenceContext;
@@ -46,9 +49,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -112,9 +115,9 @@ public class PersistenceManagerTest {
 	@Captor
 	private ArgumentCaptor<Options> optionsCaptor;
 
-	private PersistenceManager manager;
+	private DefaultPersistenceManager manager;
 
-	private Long primaryKey = RandomUtils.nextLong();
+	private Long primaryKey = new Random().nextLong();
 	private CompleteBean entity = CompleteBeanTestBuilder.builder().id(primaryKey).buid();
 
 	@Before
@@ -123,7 +126,7 @@ public class PersistenceManagerTest {
 		when(configContext.getDefaultReadConsistencyLevel()).thenReturn(ConsistencyLevel.EACH_QUORUM);
 		when(meta.getIdMeta()).thenReturn(idMeta);
 
-		manager = new PersistenceManager(entityMetaMap, contextFactory, daoContext, configContext);
+		manager = new DefaultPersistenceManager(entityMetaMap, contextFactory, daoContext, configContext);
 		manager = Mockito.spy(this.manager);
 		Whitebox.setInternalState(manager, EntityProxifier.class, proxifier);
 		Whitebox.setInternalState(manager, EntityValidator.class, entityValidator);

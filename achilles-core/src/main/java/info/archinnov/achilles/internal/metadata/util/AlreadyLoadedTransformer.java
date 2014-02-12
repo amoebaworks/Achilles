@@ -15,11 +15,12 @@
  */
 package info.archinnov.achilles.internal.metadata.util;
 
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+
 import java.lang.reflect.Method;
 import java.util.Map;
-import com.google.common.base.Function;
 
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+import com.google.common.base.Function;
 
 public class AlreadyLoadedTransformer implements Function<Method, PropertyMeta> {
 	private final Map<Method, PropertyMeta> getterMetas;

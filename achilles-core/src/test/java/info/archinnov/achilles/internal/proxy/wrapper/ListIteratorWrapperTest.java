@@ -17,21 +17,21 @@ package info.archinnov.achilles.internal.proxy.wrapper;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+import info.archinnov.achilles.internal.metadata.holder.PropertyType;
+import info.archinnov.achilles.internal.persistence.operations.EntityProxifier;
+import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.metadata.holder.PropertyType;
-import info.archinnov.achilles.internal.persistence.operations.EntityProxifier;
-import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ListIteratorWrapperTest {

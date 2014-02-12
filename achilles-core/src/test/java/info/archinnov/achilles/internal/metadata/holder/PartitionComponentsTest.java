@@ -16,14 +16,15 @@
 
 package info.archinnov.achilles.internal.metadata.holder;
 
+import info.archinnov.achilles.exception.AchillesException;
+
 import java.util.Arrays;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
-import info.archinnov.achilles.exception.AchillesException;
-import info.archinnov.achilles.internal.metadata.holder.PartitionComponents;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PartitionComponentsTest {

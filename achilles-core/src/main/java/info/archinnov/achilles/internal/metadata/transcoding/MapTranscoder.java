@@ -15,12 +15,13 @@
  */
 package info.archinnov.achilles.internal.metadata.transcoding;
 
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import org.codehaus.jackson.map.ObjectMapper;
 
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+import org.codehaus.jackson.map.ObjectMapper;
 
 public class MapTranscoder extends AbstractTranscoder {
 

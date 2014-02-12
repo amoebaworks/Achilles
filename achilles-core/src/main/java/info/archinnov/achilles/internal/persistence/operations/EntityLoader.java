@@ -15,14 +15,16 @@
  */
 package info.archinnov.achilles.internal.persistence.operations;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import com.datastax.driver.core.Row;
 import info.archinnov.achilles.internal.context.PersistenceContext;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyType;
 import info.archinnov.achilles.internal.validation.Validator;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.datastax.driver.core.Row;
 
 public class EntityLoader {
 

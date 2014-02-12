@@ -17,6 +17,7 @@
 package info.archinnov.achilles.internal.table;
 
 import java.util.List;
+
 import com.datastax.driver.core.ColumnMetadata;
 import com.datastax.driver.core.DataType;
 import com.datastax.driver.core.TableMetadata;

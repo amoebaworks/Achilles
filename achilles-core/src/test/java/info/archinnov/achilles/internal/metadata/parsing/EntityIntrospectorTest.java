@@ -15,17 +15,19 @@
  */
 package info.archinnov.achilles.internal.metadata.parsing;
 
-import static info.archinnov.achilles.type.ConsistencyLevel.*;
+import static info.archinnov.achilles.type.ConsistencyLevel.ALL;
+import static info.archinnov.achilles.type.ConsistencyLevel.ANY;
+import static info.archinnov.achilles.type.ConsistencyLevel.LOCAL_QUORUM;
+import static info.archinnov.achilles.type.ConsistencyLevel.ONE;
 import static org.fest.assertions.api.Assertions.assertThat;
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.Consistency;
 import info.archinnov.achilles.annotations.Entity;
 import info.archinnov.achilles.annotations.Id;
 import info.archinnov.achilles.annotations.TimeUUID;
+import info.archinnov.achilles.exception.AchillesBeanMappingException;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.metadata.parsing.EntityIntrospector;
-import info.archinnov.achilles.exception.AchillesBeanMappingException;
 import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 import info.archinnov.achilles.test.parser.entity.BeanWithColumnFamilyName;
 import info.archinnov.achilles.test.parser.entity.ChildBean;

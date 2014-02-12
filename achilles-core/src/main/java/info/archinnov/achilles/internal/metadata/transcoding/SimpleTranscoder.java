@@ -15,10 +15,10 @@
  */
 package info.archinnov.achilles.internal.metadata.transcoding;
 
-import org.codehaus.jackson.map.ObjectMapper;
-
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.reflection.ReflectionInvoker;
+
+import org.codehaus.jackson.map.ObjectMapper;
 
 public class SimpleTranscoder extends AbstractTranscoder {
 

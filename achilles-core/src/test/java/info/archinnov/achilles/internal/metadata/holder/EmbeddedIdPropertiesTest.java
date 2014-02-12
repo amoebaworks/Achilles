@@ -17,15 +17,12 @@ package info.archinnov.achilles.internal.metadata.holder;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
-import info.archinnov.achilles.internal.metadata.holder.ClusteringComponents;
-import info.archinnov.achilles.internal.metadata.holder.EmbeddedIdProperties;
-import info.archinnov.achilles.internal.metadata.holder.PartitionComponents;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+
 import org.junit.Test;
 
 public class EmbeddedIdPropertiesTest {

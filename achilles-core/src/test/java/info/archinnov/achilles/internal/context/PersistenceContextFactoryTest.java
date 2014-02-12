@@ -15,7 +15,8 @@
  */
 package info.archinnov.achilles.internal.context;
 
-import static info.archinnov.achilles.type.ConsistencyLevel.*;
+import static info.archinnov.achilles.type.ConsistencyLevel.EACH_QUORUM;
+import static info.archinnov.achilles.type.ConsistencyLevel.LOCAL_QUORUM;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
@@ -29,8 +30,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -80,7 +81,7 @@ public class PersistenceContextFactoryTest {
 
 	@Test
 	public void should_create_new_context_for_entity_with_consistency_and_ttl() throws Exception {
-		Long primaryKey = RandomUtils.nextLong();
+		Long primaryKey = new Random().nextLong();
 		CompleteBean entity = new CompleteBean(primaryKey);
 
 		when(proxifier.<CompleteBean> deriveBaseClass(entity)).thenReturn(CompleteBean.class);
@@ -98,7 +99,7 @@ public class PersistenceContextFactoryTest {
 
 	@Test
 	public void should_create_new_context_for_entity() throws Exception {
-		Long primaryKey = RandomUtils.nextLong();
+		Long primaryKey = new Random().nextLong();
 		CompleteBean entity = new CompleteBean(primaryKey);
 
 		when(proxifier.<CompleteBean> deriveBaseClass(entity)).thenReturn(CompleteBean.class);
@@ -116,7 +117,7 @@ public class PersistenceContextFactoryTest {
 
 	@Test
 	public void should_create_new_context_with_primary_key() throws Exception {
-		Object primaryKey = RandomUtils.nextLong();
+		Object primaryKey = new Random().nextLong();
 
 		PersistenceContext context = pmf.newContext(CompleteBean.class, primaryKey,
 				OptionsBuilder.withConsistency(LOCAL_QUORUM).withTtl(98));
@@ -131,7 +132,7 @@ public class PersistenceContextFactoryTest {
 
 	@Test
 	public void should_create_new_context_for_slice_query() throws Exception {
-		Long primaryKey = RandomUtils.nextLong();
+		Long primaryKey = new Random().nextLong();
 		List<Object> partitionComponents = Arrays.<Object> asList(primaryKey);
 		when(invoker.instantiateEmbeddedIdWithPartitionComponents(idMeta, partitionComponents)).thenReturn(primaryKey);
 

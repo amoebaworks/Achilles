@@ -16,12 +16,14 @@
 
 package info.archinnov.achilles.internal.metadata.holder;
 
+import info.archinnov.achilles.exception.AchillesException;
+import info.archinnov.achilles.internal.validation.Validator;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
-import org.apache.commons.lang.StringUtils;
-import info.archinnov.achilles.exception.AchillesException;
-import info.archinnov.achilles.internal.validation.Validator;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class ClusteringComponents extends AbstractComponentProperties {
 

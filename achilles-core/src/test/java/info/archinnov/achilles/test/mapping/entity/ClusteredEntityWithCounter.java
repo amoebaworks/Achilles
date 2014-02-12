@@ -16,7 +16,6 @@
 package info.archinnov.achilles.test.mapping.entity;
 
 import static info.archinnov.achilles.test.mapping.entity.ClusteredEntityWithCounter.TABLE_NAME;
-
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.EmbeddedId;
 import info.archinnov.achilles.annotations.Entity;

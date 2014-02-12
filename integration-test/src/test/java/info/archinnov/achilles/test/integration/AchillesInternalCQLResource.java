@@ -16,8 +16,11 @@
  */
 package info.archinnov.achilles.test.integration;
 
-import static info.archinnov.achilles.configuration.ConfigurationParameters.*;
-import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.*;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.ENTITY_PACKAGES_PARAM;
+import static info.archinnov.achilles.configuration.ConfigurationParameters.KEYSPACE_NAME_PARAM;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.CLEAN_CASSANDRA_DATA_FILES;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.DEFAULT_ACHILLES_TEST_KEYSPACE_NAME;
+import static info.archinnov.achilles.embedded.CassandraEmbeddedConfigParameters.KEYSPACE_DURABLE_WRITE;
 import info.archinnov.achilles.configuration.ConfigurationParameters;
 import info.archinnov.achilles.embedded.CassandraEmbeddedServer;
 import info.archinnov.achilles.junit.AchillesTestResource;
@@ -25,7 +28,7 @@ import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.persistence.PersistenceManagerFactory;
 import info.archinnov.achilles.type.TypedMap;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.datastax.driver.core.Session;
 

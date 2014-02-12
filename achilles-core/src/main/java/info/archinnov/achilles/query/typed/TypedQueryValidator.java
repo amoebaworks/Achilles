@@ -15,12 +15,12 @@
  */
 package info.archinnov.achilles.query.typed;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.validation.Validator;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TypedQueryValidator {
     private static final Logger log  = LoggerFactory.getLogger(TypedQueryValidator.class);

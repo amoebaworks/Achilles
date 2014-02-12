@@ -16,13 +16,13 @@
 package info.archinnov.achilles.internal.table;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import info.archinnov.achilles.exception.AchillesInvalidTableException;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
-import info.archinnov.achilles.exception.AchillesInvalidTableException;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TableNameNormalizerTest {

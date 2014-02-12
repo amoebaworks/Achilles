@@ -15,16 +15,19 @@
  */
 package info.archinnov.achilles.internal.metadata.util;
 
-import static info.archinnov.achilles.internal.metadata.holder.PropertyType.*;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.COUNTER;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.MAP;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SET;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SIMPLE;
 import static org.fest.assertions.api.Assertions.assertThat;
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
 
 import java.util.Arrays;
-import org.junit.Test;
-import com.google.common.collect.Collections2;
 
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.metadata.util.PropertyTypeFilter;
-import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
+import org.junit.Test;
+
+import com.google.common.collect.Collections2;
 
 public class PropertyTypeFilterTest {
 

@@ -15,12 +15,16 @@
  */
 package info.archinnov.achilles.internal.statement;
 
-import static info.archinnov.achilles.type.BoundingMode.*;
-import static info.archinnov.achilles.type.OrderingMode.*;
+import static info.archinnov.achilles.type.BoundingMode.EXCLUSIVE_BOUNDS;
+import static info.archinnov.achilles.type.BoundingMode.INCLUSIVE_BOUNDS;
+import static info.archinnov.achilles.type.BoundingMode.INCLUSIVE_END_BOUND_ONLY;
+import static info.archinnov.achilles.type.BoundingMode.INCLUSIVE_START_BOUND_ONLY;
+import static info.archinnov.achilles.type.OrderingMode.ASCENDING;
+import static info.archinnov.achilles.type.OrderingMode.DESCENDING;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
-import info.archinnov.achilles.query.slice.CQLSliceQuery;
 import info.archinnov.achilles.internal.statement.wrapper.RegularStatementWrapper;
+import info.archinnov.achilles.query.slice.CQLSliceQuery;
 import info.archinnov.achilles.test.mapping.entity.ClusteredEntity;
 
 import java.util.Arrays;

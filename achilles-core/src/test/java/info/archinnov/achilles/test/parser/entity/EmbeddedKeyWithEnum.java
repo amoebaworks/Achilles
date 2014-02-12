@@ -15,8 +15,9 @@
  */
 package info.archinnov.achilles.test.parser.entity;
 
-import java.lang.annotation.ElementType;
 import info.archinnov.achilles.annotations.Order;
+
+import java.lang.annotation.ElementType;
 
 public class EmbeddedKeyWithEnum {
 

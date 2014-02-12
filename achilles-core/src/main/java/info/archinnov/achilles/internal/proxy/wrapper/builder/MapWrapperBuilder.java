@@ -15,9 +15,10 @@
  */
 package info.archinnov.achilles.internal.proxy.wrapper.builder;
 
-import java.util.Map;
 import info.archinnov.achilles.internal.context.PersistenceContext;
 import info.archinnov.achilles.internal.proxy.wrapper.MapWrapper;
+
+import java.util.Map;
 
 public class MapWrapperBuilder extends AbstractWrapperBuilder<MapWrapperBuilder> {
 	private Map<Object, Object> target;

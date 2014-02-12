@@ -19,6 +19,13 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import info.archinnov.achilles.internal.context.PersistenceContext;
+import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+import info.archinnov.achilles.internal.metadata.holder.PropertyType;
+import info.archinnov.achilles.internal.persistence.operations.EntityProxifier;
+import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
+import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -27,19 +34,13 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-import info.archinnov.achilles.internal.context.PersistenceContext;
-import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.metadata.holder.PropertyType;
-import info.archinnov.achilles.internal.persistence.operations.EntityProxifier;
-import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
-import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CollectionWrapperTest {

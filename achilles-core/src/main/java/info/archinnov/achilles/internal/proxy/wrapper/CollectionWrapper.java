@@ -15,11 +15,13 @@
  */
 package info.archinnov.achilles.internal.proxy.wrapper;
 
+import info.archinnov.achilles.internal.proxy.wrapper.builder.IteratorWrapperBuilder;
+
 import java.util.Collection;
 import java.util.Iterator;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import info.archinnov.achilles.internal.proxy.wrapper.builder.IteratorWrapperBuilder;
 
 public class CollectionWrapper extends AbstractWrapper implements Collection<Object> {
 	private static final Logger log = LoggerFactory.getLogger(CollectionWrapper.class);

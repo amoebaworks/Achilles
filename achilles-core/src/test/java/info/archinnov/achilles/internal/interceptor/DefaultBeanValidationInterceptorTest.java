@@ -16,9 +16,11 @@
 
 package info.archinnov.achilles.internal.interceptor;
 
-import static info.archinnov.achilles.interceptor.Event.*;
+import static info.archinnov.achilles.interceptor.Event.PRE_PERSIST;
+import static info.archinnov.achilles.interceptor.Event.PRE_UPDATE;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.exception.AchillesBeanValidationException;
 import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 

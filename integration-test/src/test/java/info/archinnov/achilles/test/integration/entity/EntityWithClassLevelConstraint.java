@@ -17,7 +17,8 @@
 package info.archinnov.achilles.test.integration.entity;
 
 import static info.archinnov.achilles.test.integration.entity.EntityWithClassLevelConstraint.TABLE_NAME;
-import static java.lang.annotation.ElementType.*;
+import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
+import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.Entity;

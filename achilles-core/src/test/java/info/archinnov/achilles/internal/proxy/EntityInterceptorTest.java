@@ -17,7 +17,10 @@ package info.archinnov.achilles.internal.proxy;
 
 import static info.archinnov.achilles.test.builders.PropertyMetaTestBuilder.completeBean;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.internal.context.PersistenceContext;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyType;
@@ -38,11 +41,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 import net.sf.cglib.proxy.MethodProxy;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -88,7 +91,7 @@ public class EntityInterceptorTest {
 	private Set<Method> alreadyLoaded = new HashSet<Method>();
 	private Map<Method, PropertyMeta> dirtyMap = new HashMap<>();
 	private CompleteBean target;
-	private Long key = RandomUtils.nextLong();
+	private Long key = new Random().nextLong();
 	private Object rawValue = "raw";
 	private PropertyMeta idMeta;
 

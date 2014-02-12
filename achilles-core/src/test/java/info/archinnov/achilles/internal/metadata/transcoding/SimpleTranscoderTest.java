@@ -18,13 +18,11 @@ package info.archinnov.achilles.internal.metadata.transcoding;
 import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SIMPLE;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
-
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.metadata.transcoding.SimpleTranscoder;
-import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
 
 public class SimpleTranscoderTest {
 

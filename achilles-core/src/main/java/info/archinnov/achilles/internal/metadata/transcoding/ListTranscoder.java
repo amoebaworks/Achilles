@@ -15,11 +15,12 @@
  */
 package info.archinnov.achilles.internal.metadata.transcoding;
 
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.codehaus.jackson.map.ObjectMapper;
 
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+import org.codehaus.jackson.map.ObjectMapper;
 
 public class ListTranscoder extends SimpleTranscoder {
 

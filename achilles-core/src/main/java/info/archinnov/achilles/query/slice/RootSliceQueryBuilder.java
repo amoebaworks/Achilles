@@ -15,7 +15,8 @@
  */
 package info.archinnov.achilles.query.slice;
 
-import static info.archinnov.achilles.query.slice.SliceQuery.*;
+import static info.archinnov.achilles.query.slice.SliceQuery.DEFAULT_BATCH_SIZE;
+import static info.archinnov.achilles.query.slice.SliceQuery.DEFAULT_LIMIT;
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.persistence.operations.SliceQueryExecutor;

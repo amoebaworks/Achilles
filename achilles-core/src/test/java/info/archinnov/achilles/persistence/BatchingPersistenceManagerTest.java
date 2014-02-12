@@ -15,17 +15,18 @@
  */
 package info.archinnov.achilles.persistence;
 
-import static info.archinnov.achilles.type.ConsistencyLevel.*;
+import static info.archinnov.achilles.type.ConsistencyLevel.EACH_QUORUM;
+import static info.archinnov.achilles.type.ConsistencyLevel.ONE;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import info.archinnov.achilles.exception.AchillesException;
 import info.archinnov.achilles.internal.context.BatchingFlushContext;
 import info.archinnov.achilles.internal.context.ConfigurationContext;
 import info.archinnov.achilles.internal.context.DaoContext;
 import info.archinnov.achilles.internal.context.PersistenceContext;
 import info.archinnov.achilles.internal.context.PersistenceContextFactory;
-import info.archinnov.achilles.exception.AchillesException;
-import info.archinnov.achilles.persistence.BatchingPersistenceManager;
-import info.archinnov.achilles.persistence.PersistenceManagerFactory;
 import info.archinnov.achilles.test.mapping.entity.CompleteBean;
 import info.archinnov.achilles.type.ConsistencyLevel;
 import info.archinnov.achilles.type.Options;
@@ -48,7 +49,7 @@ public class BatchingPersistenceManagerTest {
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
 
-	private BatchingPersistenceManager manager;
+	private DefaultBatchingPersistenceManager manager;
 
 	@Mock
 	private PersistenceContextFactory contextFactory;
@@ -71,7 +72,7 @@ public class BatchingPersistenceManagerTest {
 	@Before
 	public void setUp() {
         when(configContext.getDefaultWriteConsistencyLevel()).thenReturn(ConsistencyLevel.ONE);
-        manager = new BatchingPersistenceManager(null, contextFactory, daoContext, configContext);
+        manager = new DefaultBatchingPersistenceManager(null, contextFactory, daoContext, configContext);
 		Whitebox.setInternalState(manager, BatchingFlushContext.class, flushContext);
 	}
 

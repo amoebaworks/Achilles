@@ -15,14 +15,16 @@
  */
 package info.archinnov.achilles.internal.metadata.holder;
 
-import static info.archinnov.achilles.internal.metadata.holder.PropertyType.*;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.EMBEDDED_ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.ID;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.LIST;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.MAP;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SET;
+import static info.archinnov.achilles.internal.metadata.holder.PropertyType.SIMPLE;
 import static info.archinnov.achilles.type.ConsistencyLevel.QUORUM;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
-import info.archinnov.achilles.internal.metadata.holder.ClusteringComponents;
-import info.archinnov.achilles.internal.metadata.holder.EmbeddedIdProperties;
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.metadata.holder.PropertyType;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import info.archinnov.achilles.internal.metadata.transcoding.DataTranscoder;
 import info.archinnov.achilles.internal.metadata.transcoding.SimpleTranscoder;
 import info.archinnov.achilles.internal.reflection.ReflectionInvoker;
@@ -40,10 +42,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Rule;
 import org.junit.Test;
@@ -416,7 +418,7 @@ public class PropertyMetaTest {
 	@Test
 	public void should_get_primary_key() throws Exception {
 
-		long id = RandomUtils.nextLong();
+		long id = new Random().nextLong();
 		CompleteBean entity = new CompleteBean(id);
 
 		PropertyMeta pm = new PropertyMeta();
@@ -446,7 +448,7 @@ public class PropertyMetaTest {
 	@Test
 	public void should_get_partition_key() throws Exception {
 
-		long id = RandomUtils.nextLong();
+		long id = new Random().nextLong();
 		EmbeddedKey embeddedKey = new EmbeddedKey(id, "name");
 
 		PropertyMeta pm = new PropertyMeta();

@@ -19,10 +19,10 @@ import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.persistence.operations.EntityProxifier;
 import info.archinnov.achilles.internal.reflection.ReflectionInvoker;
+import info.archinnov.achilles.internal.validation.Validator;
 import info.archinnov.achilles.type.ConsistencyLevel;
 import info.archinnov.achilles.type.Options;
 import info.archinnov.achilles.type.OptionsBuilder;
-import info.archinnov.achilles.internal.validation.Validator;
 
 import java.util.List;
 import java.util.Map;

@@ -1,7 +1,6 @@
 package info.archinnov.achilles.test.integration.entity;
 
 import static info.archinnov.achilles.test.integration.entity.EntityWithCompositePartitionKey.TABLE_NAME;
-
 import info.archinnov.achilles.annotations.Column;
 import info.archinnov.achilles.annotations.EmbeddedId;
 import info.archinnov.achilles.annotations.Entity;

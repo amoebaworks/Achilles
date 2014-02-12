@@ -17,19 +17,19 @@ package info.archinnov.achilles.internal.proxy.wrapper;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.doCallRealMethod;
+import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
+import info.archinnov.achilles.internal.metadata.holder.PropertyType;
+import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
-import info.archinnov.achilles.internal.metadata.holder.PropertyType;
-import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AbstractWrapperTest {

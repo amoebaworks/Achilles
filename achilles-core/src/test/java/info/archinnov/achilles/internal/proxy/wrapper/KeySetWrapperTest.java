@@ -17,6 +17,7 @@ package info.archinnov.achilles.internal.proxy.wrapper;
 
 import java.util.Arrays;
 import java.util.HashSet;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;

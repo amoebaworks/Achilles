@@ -17,7 +17,13 @@
 package info.archinnov.achilles.test.integration.tests;
 
 import static info.archinnov.achilles.configuration.ConfigurationParameters.EVENT_INTERCEPTORS_PARAM;
-import static info.archinnov.achilles.interceptor.Event.*;
+import static info.archinnov.achilles.interceptor.Event.POST_LOAD;
+import static info.archinnov.achilles.interceptor.Event.POST_PERSIST;
+import static info.archinnov.achilles.interceptor.Event.POST_REMOVE;
+import static info.archinnov.achilles.interceptor.Event.POST_UPDATE;
+import static info.archinnov.achilles.interceptor.Event.PRE_PERSIST;
+import static info.archinnov.achilles.interceptor.Event.PRE_REMOVE;
+import static info.archinnov.achilles.interceptor.Event.PRE_UPDATE;
 import static info.archinnov.achilles.test.integration.entity.CompleteBeanTestBuilder.builder;
 import static java.util.Arrays.asList;
 import static org.fest.assertions.api.Assertions.assertThat;
@@ -32,9 +38,9 @@ import info.archinnov.achilles.test.integration.entity.CompleteBean;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
-import org.apache.commons.lang.RandomStringUtils;
-import org.apache.commons.lang.math.RandomUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -265,8 +271,8 @@ public class EventInterceptorIT {
 	@Test
 	public void should_apply_post_load_interceptor_on_slice_query() throws Exception {
 		// Given
-		Long id = RandomUtils.nextLong();
-		Integer count = RandomUtils.nextInt();
+		Long id = new Random().nextLong();
+		Integer count = new Random().nextInt();
 		String name = RandomStringUtils.randomAlphabetic(10);
 		String value = "value_before_load";
 		ClusteredEntity entity = new ClusteredEntity(id, count, name, value);

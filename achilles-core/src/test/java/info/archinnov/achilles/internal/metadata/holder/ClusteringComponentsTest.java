@@ -16,16 +16,17 @@
 
 package info.archinnov.achilles.internal.metadata.holder;
 
+import info.archinnov.achilles.exception.AchillesException;
+import info.archinnov.achilles.test.mapping.entity.UserBean;
+
 import java.util.Arrays;
 import java.util.UUID;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
-import info.archinnov.achilles.exception.AchillesException;
-import info.archinnov.achilles.internal.metadata.holder.ClusteringComponents;
-import info.archinnov.achilles.test.mapping.entity.UserBean;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ClusteringComponentsTest {

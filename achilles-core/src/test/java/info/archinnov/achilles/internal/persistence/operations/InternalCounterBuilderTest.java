@@ -16,7 +16,9 @@
 
 package info.archinnov.achilles.internal.persistence.operations;
 
-import static info.archinnov.achilles.internal.persistence.operations.InternalCounterBuilder.*;
+import static info.archinnov.achilles.internal.persistence.operations.InternalCounterBuilder.decr;
+import static info.archinnov.achilles.internal.persistence.operations.InternalCounterBuilder.incr;
+import static info.archinnov.achilles.internal.persistence.operations.InternalCounterBuilder.initialValue;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;

@@ -17,15 +17,16 @@
 package info.archinnov.achilles.test.integration.utils;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import info.archinnov.achilles.type.ConsistencyLevel;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStreamWriter;
-import org.apache.commons.lang.StringUtils;
+
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.WriterAppender;
-import info.archinnov.achilles.type.ConsistencyLevel;
 
 public class CassandraLogAsserter {
 	private static final String STORAGE_PROXY_LOGGER = "org.apache.cassandra.service.StorageProxy";

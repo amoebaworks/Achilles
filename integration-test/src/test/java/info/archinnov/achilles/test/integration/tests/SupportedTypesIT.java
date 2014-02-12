@@ -26,8 +26,8 @@ import java.math.BigInteger;
 import java.net.InetAddress;
 import java.nio.ByteBuffer;
 import java.util.Date;
+import java.util.Random;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -44,7 +44,7 @@ public class SupportedTypesIT {
 	@Test
 	public void should_persist_and_find_all_types() throws Exception {
 		// Given
-		Long id = RandomUtils.nextLong();
+		Long id = new Random().nextLong();
 		byte[] bytes = "toto".getBytes(Charsets.UTF_8);
 		Date now = new Date();
 		InetAddress inetAddress = InetAddresses.forString("192.168.0.1");

@@ -16,6 +16,7 @@
 package info.archinnov.achilles.internal.helper;
 
 import java.lang.reflect.Field;
+
 import com.google.common.base.Function;
 
 public class LoggerHelper {

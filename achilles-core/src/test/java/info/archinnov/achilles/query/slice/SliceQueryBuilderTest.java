@@ -17,18 +17,6 @@ package info.archinnov.achilles.query.slice;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
-
-import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.List;
-import org.apache.commons.lang.math.RandomUtils;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
-import org.powermock.reflect.Whitebox;
-
 import info.archinnov.achilles.internal.metadata.holder.EntityMeta;
 import info.archinnov.achilles.internal.metadata.holder.PropertyMeta;
 import info.archinnov.achilles.internal.metadata.transcoding.DataTranscoder;
@@ -36,6 +24,18 @@ import info.archinnov.achilles.internal.persistence.operations.SliceQueryExecuto
 import info.archinnov.achilles.test.builders.PropertyMetaTestBuilder;
 import info.archinnov.achilles.test.mapping.entity.ClusteredEntity;
 import info.archinnov.achilles.test.parser.entity.EmbeddedKey;
+
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.powermock.reflect.Whitebox;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SliceQueryBuilderTest {
@@ -75,7 +75,7 @@ public class SliceQueryBuilderTest {
 
 	@Test
 	public void should_set_partition_key_and_create_builder() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		SliceQueryBuilder<ClusteredEntity>.SliceShortcutQueryBuilder shortCutBuilder = builder
 				.partitionComponents(partitionKey);
 
@@ -84,7 +84,7 @@ public class SliceQueryBuilderTest {
 
 	@Test
 	public void should_set_from_embedded_id_and_create_builder() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		String name = "name";
 		EmbeddedKey embeddedKey = new EmbeddedKey(partitionKey, name);
 
@@ -99,7 +99,7 @@ public class SliceQueryBuilderTest {
 
 	@Test
 	public void should_set_to_embedded_id_and_create_builder() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		String name = "name";
 		EmbeddedKey embeddedKey = new EmbeddedKey(partitionKey, name);
 

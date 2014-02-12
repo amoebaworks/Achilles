@@ -17,17 +17,17 @@
 package info.archinnov.achilles.test.integration.tests;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-
-import org.junit.Rule;
-import org.junit.Test;
-import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.junit.AchillesTestResource.Steps;
+import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.test.builders.TweetTestBuilder;
 import info.archinnov.achilles.test.integration.AchillesInternalCQLResource;
 import info.archinnov.achilles.test.integration.entity.CompleteBean;
 import info.archinnov.achilles.test.integration.entity.CompleteBeanTestBuilder;
 import info.archinnov.achilles.test.integration.entity.Tweet;
 import net.sf.cglib.proxy.Factory;
+
+import org.junit.Rule;
+import org.junit.Test;
 
 public class RemoveProxyIT {
 

@@ -22,22 +22,24 @@ import static info.archinnov.achilles.type.BoundingMode.INCLUSIVE_START_BOUND_ON
 import static info.archinnov.achilles.type.ConsistencyLevel.EACH_QUORUM;
 import static info.archinnov.achilles.type.OrderingMode.DESCENDING;
 import static org.fest.assertions.api.Assertions.assertThat;
-
-import java.util.Iterator;
-import java.util.List;
-import org.apache.commons.lang.math.RandomUtils;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import com.datastax.driver.core.Session;
-import com.datastax.driver.core.exceptions.InvalidQueryException;
-import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.exception.AchillesException;
 import info.archinnov.achilles.junit.AchillesTestResource.Steps;
+import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.test.integration.AchillesInternalCQLResource;
 import info.archinnov.achilles.test.integration.entity.ClusteredEntity;
 import info.archinnov.achilles.test.integration.entity.ClusteredEntity.ClusteredKey;
 import info.archinnov.achilles.type.OptionsBuilder;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+import com.datastax.driver.core.Session;
+import com.datastax.driver.core.exceptions.InvalidQueryException;
 
 public class ClusteredEntityIT {
 	@Rule
@@ -56,7 +58,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_persist_and_find() throws Exception {
-		compoundKey = new ClusteredKey(RandomUtils.nextLong(), RandomUtils.nextInt(), "name");
+		compoundKey = new ClusteredKey(new Random().nextLong(), new Random().nextInt(), "name");
 
 		entity = new ClusteredEntity(compoundKey, "clustered_value");
 
@@ -70,7 +72,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_persist_with_ttl() throws Exception {
-		compoundKey = new ClusteredKey(RandomUtils.nextLong(), RandomUtils.nextInt(), "name");
+		compoundKey = new ClusteredKey(new Random().nextLong(), new Random().nextInt(), "name");
 
 		entity = new ClusteredEntity(compoundKey, "clustered_value");
 
@@ -85,7 +87,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_persist_and_get_proxy() throws Exception {
-		compoundKey = new ClusteredKey(RandomUtils.nextLong(), RandomUtils.nextInt(), "name");
+		compoundKey = new ClusteredKey(new Random().nextLong(), new Random().nextInt(), "name");
 
 		entity = new ClusteredEntity(compoundKey, "clustered_value");
 
@@ -99,7 +101,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_update_with_ttl() throws Exception {
-		compoundKey = new ClusteredKey(RandomUtils.nextLong(), RandomUtils.nextInt(), "name");
+		compoundKey = new ClusteredKey(new Random().nextLong(), new Random().nextInt(), "name");
 		entity = new ClusteredEntity(compoundKey, "clustered_value");
 		entity = manager.persist(entity, OptionsBuilder.withTtl(1));
 
@@ -112,7 +114,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_update_modifications() throws Exception {
-		compoundKey = new ClusteredKey(RandomUtils.nextLong(), RandomUtils.nextInt(), "name");
+		compoundKey = new ClusteredKey(new Random().nextLong(), new Random().nextInt(), "name");
 
 		entity = new ClusteredEntity(compoundKey, "clustered_value");
 
@@ -128,7 +130,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_remove() throws Exception {
-		compoundKey = new ClusteredKey(RandomUtils.nextLong(), RandomUtils.nextInt(), "name");
+		compoundKey = new ClusteredKey(new Random().nextLong(), new Random().nextInt(), "name");
 
 		entity = new ClusteredEntity(compoundKey, "clustered_value");
 
@@ -142,7 +144,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_remove_by_id() throws Exception {
-		compoundKey = new ClusteredKey(RandomUtils.nextLong(), RandomUtils.nextInt(), "name");
+		compoundKey = new ClusteredKey(new Random().nextLong(), new Random().nextInt(), "name");
 
 		entity = new ClusteredEntity(compoundKey, "clustered_value");
 
@@ -157,8 +159,8 @@ public class ClusteredEntityIT {
 	@Test
 	public void should_refresh() throws Exception {
 
-		long partitionKey = RandomUtils.nextLong();
-		int count = RandomUtils.nextInt();
+		long partitionKey = new Random().nextLong();
+		int count = new Random().nextInt();
 		String name = "name";
 		compoundKey = new ClusteredKey(partitionKey, count, name);
 
@@ -177,7 +179,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_query_with_default_params() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		List<ClusteredEntity> entities = manager.sliceQuery(ClusteredEntity.class).partitionComponents(partitionKey)
 				.fromClusterings(1, "name2").toClusterings(1, "name4").get();
 
@@ -224,7 +226,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_check_for_common_operation_on_found_clustered_entity() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		insertValues(partitionKey, 1, 1);
 
 		ClusteredEntity clusteredEntity = manager.sliceQuery(ClusteredEntity.class).partitionComponents(partitionKey)
@@ -251,7 +253,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_query_with_custom_params() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		String clusteredValuePrefix = insertValues(partitionKey, 1, 5);
 
 		List<ClusteredEntity> entities = manager.sliceQuery(ClusteredEntity.class).partitionComponents(partitionKey)
@@ -277,7 +279,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_query_with_consistency_level() throws Exception {
-		Long partitionKey = RandomUtils.nextLong();
+		Long partitionKey = new Random().nextLong();
 		insertValues(partitionKey, 1, 5);
 
 		exception.expect(InvalidQueryException.class);
@@ -289,7 +291,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_query_with_getFirst() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		ClusteredEntity entity = manager.sliceQuery(ClusteredEntity.class).partitionComponents(partitionKey)
 				.getFirstOccurence();
 
@@ -327,7 +329,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_query_with_getLast() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 
 		ClusteredEntity entity = manager.sliceQuery(ClusteredEntity.class).partitionComponents(partitionKey)
 				.getLastOccurence();
@@ -365,7 +367,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_iterate_with_default_params() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		String clusteredValuePrefix = insertValues(partitionKey, 1, 5);
 
 		Iterator<ClusteredEntity> iter = manager.sliceQuery(ClusteredEntity.class).partitionComponents(partitionKey)
@@ -411,7 +413,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_check_for_common_operation_on_found_clustered_entity_by_iterator() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		insertValues(partitionKey, 1, 1);
 
 		Iterator<ClusteredEntity> iter = manager.sliceQuery(ClusteredEntity.class).partitionComponents(partitionKey)
@@ -441,7 +443,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_iterate_with_custom_params() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		String clusteredValuePrefix = insertValues(partitionKey, 1, 5);
 
 		Iterator<ClusteredEntity> iter = manager.sliceQuery(ClusteredEntity.class).partitionComponents(partitionKey)
@@ -461,7 +463,7 @@ public class ClusteredEntityIT {
     @Test
     public void should_iterate_over_clusterings_components() throws Exception {
         //Given
-        long partitionKey = RandomUtils.nextLong();
+        long partitionKey = new Random().nextLong();
         insertClusteredEntity(partitionKey,1,"name11","val11");
         insertClusteredEntity(partitionKey,1,"name12","val12");
         insertClusteredEntity(partitionKey,1,"name13","val13");
@@ -499,7 +501,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_remove_with_default_params() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		String clusteredValuePrefix = insertValues(partitionKey, 1, 2);
 		insertValues(partitionKey, 2, 3);
 		insertValues(partitionKey, 3, 1);
@@ -522,7 +524,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_exception_when_remove_with_varying_components() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		insertValues(partitionKey, 1, 5);
 
 		exception.expect(AchillesException.class);
@@ -535,7 +537,7 @@ public class ClusteredEntityIT {
 
 	@Test
 	public void should_exception_when_remove_with_limit() throws Exception {
-		long partitionKey = RandomUtils.nextLong();
+		long partitionKey = new Random().nextLong();
 		insertValues(partitionKey, 1, 5);
 
 		exception.expect(AchillesException.class);

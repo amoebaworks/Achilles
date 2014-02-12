@@ -25,8 +25,6 @@ import info.archinnov.achilles.type.OrderingMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
-
 public class SliceQuery<T> {
 	public static final int DEFAULT_LIMIT = 100;
 	public static final int DEFAULT_BATCH_SIZE = 100;
@@ -49,7 +47,7 @@ public class SliceQuery<T> {
 			ConsistencyLevel consistencyLevel, int limit, int batchSize, boolean limitSet) {
 
 		this.limitSet = limitSet;
-		Validator.validateTrue(CollectionUtils.isNotEmpty(partitionComponents),
+		Validator.validateTrue(partitionComponents != null && !partitionComponents.isEmpty(),
 				"Partition components should be set for slice query for entity class '%s'",
 				entityClass.getCanonicalName());
 

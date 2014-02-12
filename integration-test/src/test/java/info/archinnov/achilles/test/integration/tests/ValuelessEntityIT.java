@@ -17,15 +17,16 @@
 package info.archinnov.achilles.test.integration.tests;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-
-import org.apache.commons.lang.math.RandomUtils;
-import org.junit.Rule;
-import org.junit.Test;
-import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.junit.AchillesTestResource.Steps;
+import info.archinnov.achilles.persistence.PersistenceManager;
 import info.archinnov.achilles.test.integration.AchillesInternalCQLResource;
 import info.archinnov.achilles.test.integration.entity.ValuelessEntity;
 import info.archinnov.achilles.type.OptionsBuilder;
+
+import java.util.Random;
+
+import org.junit.Rule;
+import org.junit.Test;
 
 public class ValuelessEntityIT {
 
@@ -36,7 +37,7 @@ public class ValuelessEntityIT {
 
 	@Test
 	public void should_persist_and_find() throws Exception {
-		Long id = RandomUtils.nextLong();
+		Long id = new Random().nextLong();
 		ValuelessEntity entity = new ValuelessEntity(id);
 
 		manager.persist(entity);
@@ -48,7 +49,7 @@ public class ValuelessEntityIT {
 
 	@Test
 	public void should_persist_and_get_proxy() throws Exception {
-		Long id = RandomUtils.nextLong();
+		Long id = new Random().nextLong();
 		ValuelessEntity entity = new ValuelessEntity(id);
 
 		manager.persist(entity);
@@ -60,7 +61,7 @@ public class ValuelessEntityIT {
 
 	@Test
 	public void should_persist_with_ttl() throws Exception {
-		Long id = RandomUtils.nextLong();
+		Long id = new Random().nextLong();
 		ValuelessEntity entity = new ValuelessEntity(id);
 
 		manager.persist(entity, OptionsBuilder.withTtl(1));
